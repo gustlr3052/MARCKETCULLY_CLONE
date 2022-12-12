@@ -1,0 +1,124 @@
+.--main{
+    min-width: 1050px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    background-color: rgb(255,255,255);
+}
+
+.--main-title{
+    margin-bottom: 50px;
+    font-size: 28px;
+    line-height: 35px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -1px;
+    color: black;
+}
+
+.--main-title-sub{
+    width: 640px;
+    margin: 0px auto;
+}
+.--main-title-sub >.head{
+
+
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgb(51,51,51);
+    color: rgb(102,102,102);
+    line-height: 17px;
+    text-align: right;
+}
+.star{
+    color: rgb(238,106,123);
+}
+
+.--main-content{
+    padding: 0px;
+}
+.content-common{
+    display: inline-flex;
+    width: 100%;
+    padding: 10px 20px;
+background-color: pink;
+}
+.content-common >.content-common-sub{
+    width: 139px;
+    padding-top: 12px;
+}
+.label{
+    font-weight: 500;
+    color: rgb(51,51,51);
+    line-height: 20px;
+}
+.--input{
+    flex: 1 1 0%;
+}
+.--input-sub{
+    padding-bottom: 0px;
+}
+.--input-sub-sub{
+    position: relative;
+    height: 48px;
+}
+.input{
+    width: 100%;
+    height: 46px;
+    padding: 0px 11px 1px 15px;
+    border-radius: 4px;
+    border: 1px solid rgb(221,221,221);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color:rgb(51,51,51);
+    outline: none;
+    box-sizing: border-box;
+}
+.doubleCheck{
+    width: 120px;
+    margin-left: 8px;
+}
+.doubleCheck >button{
+    height: 44px;
+    border-radius: 3px;
+}
+.check{
+    display: block;
+    padding: 0px 10px;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    color: rgb(95,0,128);
+    background-color: rgb(255,255,255);
+    border: 1px solid rgb( 95,0,128);
+}
+.searchAddress{
+    display: block;
+    padding: 0px 10px;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    height: 44px;
+    color: rgb(95,0,128);
+    background-color: rgb(255,255,255);
+    border: 1px solid rgb( 95,0,128);
+    border-radius: 4px;
+}
+.searchAddress > span{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.searchIcon{
+    display: block;
+}
+.searchIcon-sub{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+
+
+

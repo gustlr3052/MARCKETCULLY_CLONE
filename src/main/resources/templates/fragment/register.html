@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/mainpage/resources/stylesheets/main.css">
+    <link rel="stylesheet" href="/static/mainpage/resources/stylesheets/topnav.css">
+    <link rel="stylesheet" href="/static/mainpage/resources/stylesheets/commons.css">
+    <link rel="stylesheet" href="/static/mainpage/resources/stylesheets/register.css">
+    <title>Title</title>
+</head>
+<body>
+    <div class="topNav">
+        <div>빈공간</div>
+        <div class="topNav-Nav">
+            <div class="member" id="member">
+                <a class="sign-up">회원가입</a>
+                <div class="null"></div>
+                <a class="login">로그인</a>
+                <div class="null"></div>
+                <a class="clientCenter">고객센터</a>
+            </div>
+            <div class="image" id="image">
+                <img src="/static/mainpage/resources/images/marketkurly.png">
+            </div>
+            <div class="header" id="header">
+                <div class="header-head">
+                    <ul>
+                        <li>
+                            <span class="category">신상품</span>
+                        </li>
+                        <li>
+                            <span class="category">베스트</span>
+                        </li>
+                        <li>
+                            <span class="category">알뜰쇼핑</span>
+                        </li>
+                        <li>
+                            <span class="category">특가/혜택</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="--main">
+        <div class="--main-title">회원가입</div>
+        <div class="--main-title-sub">
+            <div class="head">
+                <span class="star">*</span>
+                필수입력사항
+            </div>
+            <div class="--main-content">
+
+                <div class="content-common">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            아이디
+                            <span class="star">*</span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <input class="input" id="memberId" name="memberId" placeholder="아이디를 입력해주세요." type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+                            <button class="check">
+                                <span class="check-check">중복확인</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-common">
+                <div class="content-common-sub">
+                    <label class="label">
+                        비밀번호
+                        <span class="star">*</span>
+                    </label>
+                </div>
+                <div class="--input">
+                    <div class="--input-sub">
+                        <div class="--input-sub-sub">
+                            <input class="input" id="password" name="password" placeholder="비밀번호를 입력해주세요." type="text" required>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="doubleCheck">
+
+                    </div>
+                </div>
+                </div>
+                <div class="content-common">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            비밀번호확인
+                            <span class="star">*</span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <input class="input" id="passwordCheck" name="passwordCheck" placeholder="비밀번호를 한번 더 입력해주세요." type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="content-common">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            이름
+                            <span class="star">*</span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <input class="input" id="name" name="name" placeholder="이름을 입력해주세요." type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-common">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            이메일
+                            <span class="star">*</span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <input class="input" id="email" name="email" placeholder="예: marketkurly @ kurly.com" type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+                            <button class="check">
+                                <span class="check-check">중복확인</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-common">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            휴대폰
+                            <span class="star">*</span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <input class="input" id="phone" name="phone" placeholder="숫자만 입력해주세요." type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+                            <button class="check">
+                                <span class="check-check">인증번호 받기</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-common">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            주소
+                            <span class="star">*</span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <button class="searchAddress" type="button">
+                                    <span class="searchIcon">
+                                        <img src="/static/mainpage/resources/images/ico_search.svg"
+                                        class="searchIcon-sub">
+                                        주소검색
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

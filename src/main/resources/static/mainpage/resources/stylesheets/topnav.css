@@ -1,0 +1,80 @@
+.topNav{
+    background-color: green;
+}
+.topNav > .topNav-Nav{
+    position: relative;
+}
+.topNav > .topNav-Nav > .member{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 20;
+    font-size: 12px;
+    -webkit-box-align: center;
+    right: 5rem;
+    top: 0;
+    background-color: hotpink;
+}
+.member>.sign-up{
+    display: block;
+    color:rgb(95,0,128);
+    cursor: pointer;
+}
+.null{
+    width: 1px;
+    height: 13px;
+    margin: 0px 12px;
+    background-color: rgb(217,217,217);
+}
+.member >.login{
+    display: block;
+    cursor: pointer;
+}
+.member >.clientCenter{
+    display: block;
+    cursor: pointer;
+}
+
+.topNav > .topNav-Nav > .image{
+    background-color: yellow;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    position: center;
+}
+.topNav > .topNav-Nav > .header{
+    display:block;
+    min-width: 1050px;
+    position: relative;
+    background-color: aquamarine;
+    font-size: 1.5rem;
+    user-select: none;
+}
+.topNav >.topNav-Nav >.header >.header-head{
+
+    display: flex;
+    user-select: none;
+    position: relative;
+    justify-content: center;
+
+}
+.topNav > .topNav-Nav > .header ul {
+    background-color: wheat;
+    display: flex;
+
+    justify-content: space-between;
+    margin-inline-start: 30px;
+    margin-left: 30px;
+    padding-inline-start:40px;
+
+}
+.topNav > .topNav-Nav > .header ul li {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+    line-height: 20px;
+    text-align: center;
+    width: 150px;
+    background-color: yellow;
+}
