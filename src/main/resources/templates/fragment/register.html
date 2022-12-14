@@ -50,6 +50,7 @@
     </div>
 
     <div class="--main">
+        <form class="form step1 " id="form">
         <div class="--main-title">회원가입</div>
         <div class="--main-title-sub">
             <div class="head">
@@ -57,50 +58,68 @@
                 필수입력사항
             </div>
             <div class="--main-content">
-
                 <div class="content-common">
                     <div class="content-common-sub">
                         <label class="label">
-                            아이디
+                            이메일
                             <span class="star">*</span>
                         </label>
                     </div>
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="memberId" name="memberId" placeholder="아이디를 입력해주세요." type="text" required>
+                                <input class="input" id="email" name="email" placeholder="이메일 주소를 입력해주세요." type="text" required>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="doubleCheck">
-                            <button class="check">
-                                <span class="check-check">중복확인</span>
-                            </button>
+                            <input class="--object-button" name="emailSend" type="button" value="인증번호 확인">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-common">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            이메일인증 확인
+                            <span class="star">*</span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <input class="input" name="emailAuthCode" placeholder="이메일 인증번호를 입력해주세요" type="text" disabled >
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+                            <input class="--object-button"  name="emailVerify" type="button" value="인증번호 확인"  disabled >
                         </div>
                     </div>
                 </div>
 
                 <div class="content-common">
-                <div class="content-common-sub">
-                    <label class="label">
+                    <div class="content-common-sub">
+                        <label class="label">
                         비밀번호
                         <span class="star">*</span>
-                    </label>
-                </div>
-                <div class="--input">
+                        </label>
+                    </div>
+                    <div class="--input">
                     <div class="--input-sub">
                         <div class="--input-sub-sub">
                             <input class="input" id="password" name="password" placeholder="비밀번호를 입력해주세요." type="text" required>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <div class="doubleCheck">
-
                     </div>
-                </div>
-                </div>
+                    <div>
+                        <div class="doubleCheck">
+
+                        </div>
+                    </div>
+                    </div>
+
                 <div class="content-common">
                     <div class="content-common-sub">
                         <label class="label">
@@ -117,10 +136,10 @@
                     </div>
                     <div>
                         <div class="doubleCheck">
-
                         </div>
                     </div>
                 </div>
+
                 <div class="content-common">
                     <div class="content-common-sub">
                         <label class="label">
@@ -145,22 +164,20 @@
                 <div class="content-common">
                     <div class="content-common-sub">
                         <label class="label">
-                            이메일
+                            닉네임
                             <span class="star">*</span>
                         </label>
                     </div>
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="email" name="email" placeholder="예: marketkurly @ kurly.com" type="text" required>
+                                <input class="input" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요." type="text" required>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="doubleCheck">
-                            <button class="check">
-                                <span class="check-check">중복확인</span>
-                            </button>
+
                         </div>
                     </div>
                 </div>
@@ -178,14 +195,12 @@
                                 <input class="input" id="phone" name="phone" placeholder="숫자만 입력해주세요." type="text" required>
                             </div>
                         </div>
+
                     </div>
-                    <div>
-                        <div class="doubleCheck">
-                            <button class="check">
-                                <span class="check-check">인증번호 받기</span>
-                            </button>
-                        </div>
+                    <div class="doubleCheck">
+
                     </div>
+
                 </div>
 
                 <div class="content-common">
@@ -198,7 +213,8 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <button class="searchAddress" type="button">
+                                <button class="searchAddressButton" type="button"
+                                name="searchAddress">
                                     <span class="searchIcon">
                                         <img src="/static/mainpage/resources/images/ico_search.svg"
                                         class="searchIcon-sub">
@@ -215,11 +231,130 @@
                     </div>
                 </div>
 
+                <div class="content-common address">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            우편번호
+                            <span class="star"></span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <input class="input" id="addressPostal" name="addressPostal" placeholder="우편번호" type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-common address">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            기본주소
+                            <span class="star"></span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <input class="input" id="addressPrimary" name="addressPrimary" placeholder="기본주소" type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-common address">
+                    <div class="content-common-sub">
+                        <label class="label">
+                            상세주소
+                            <span class="star"></span>
+                        </label>
+                    </div>
+                    <div class="--input">
+                        <div class="--input-sub">
+                            <div class="--input-sub-sub">
+                                <input class="input" id="addressSecondary" name="addressSecondary" placeholder="상세 주소를 입력해주세요." type="text" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="doubleCheck">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel address" rel="addressFindPanel">
+                    <div class="dialog" rel="addressFindPanelDialog"></div>
+                </div>
+
+                <div class="bottomLine"></div>
+
+                <div class="step2 agreeFrame">
+                    <div class="agreeFrame-sub checkbox_group">
+                        <div class="agreeFrame-sub-sub1">
+                            <label class="label">
+                                이용약관동의
+                                <span class="star">*</span>
+                            </label>
+                        </div>
+                        <div class="agreeFrame-sub-sub2">
+                            <div class="agree">
+                                <div class="agree-sub1">
+                                <label class="label --object-check" for="TermsAgreeAll">
+                                    <input id="TermsAgreeAll" class="TermsAgreeAll" type="checkbox">
+                                    <span>전체 동의합니다.</span>
+                                </label>
+                                <p class="p">선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용하실 수 있습니다.</p>
+                                </div>
+                            </div>
+                            <div class="agree">
+                                <div class="agree-sub2">
+                                    <label class="label --object-check" for="RequiredTermsCondition">
+                                    <input id="RequiredTermsCondition" class="RequiredTermsCondition" type="checkbox">
+                                    <span>이용약관 동의</span>
+                                    </label>
+                                    <span class="essential">(필수)</span>
+                                </div>
+                                <a class="viewTerms">약관보기</a>
+                            </div>
+                            <div class="agree">
+                                <div class="agree-sub2">
+                                    <label class="label --object-check" for="RequiredTermsOfPrivacy">
+                                        <input id="RequiredTermsOfPrivacy" class="RequiredTermsOfPrivacy" type="checkbox">
+                                        <span>개인정보 수집∙이용동의</span>
+                                    </label>
+                                    <span class="essential">(필수)</span>
+                                </div>
+                                <a class="viewTerms">약관보기</a>
+                            </div>
 
 
+                        </div>
+                    </div>
+
+                    </div>
+
+                <div class="joinFrame">
+                    <button class="buttonJoin" type="submit">
+                        <span>가입하기</span>
+                    </button>
+
+                </div>
+                </div>
 
 
-            </div>
+        </div>
+        </form>>
         </div>
     </div>
 

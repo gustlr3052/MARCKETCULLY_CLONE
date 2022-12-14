@@ -45,3 +45,22 @@ h3{
     margin-inline-end: 0px;
     font-weight: bold;
 }
+
+.--object-button{
+    display: block;
+    padding: 0px 10px;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    color: rgb(95,0,128);
+    background-color: rgb(255,255,255);
+    border: 1px solid rgb( 95,0,128);
+}
+.--object-button:hover{
+    background-color: rgb(95,0,128);
+    color: white;
+}
+.--object-button:active{
+    background-color: black;
+}
+

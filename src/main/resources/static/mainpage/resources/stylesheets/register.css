@@ -77,21 +77,18 @@ background-color: pink;
     width: 120px;
     margin-left: 8px;
 }
-.doubleCheck >button{
+.doubleCheck > input{
     height: 44px;
     border-radius: 3px;
 }
-.check{
-    display: block;
-    padding: 0px 10px;
-    text-align: center;
-    overflow: hidden;
-    width: 100%;
-    color: rgb(95,0,128);
-    background-color: rgb(255,255,255);
-    border: 1px solid rgb( 95,0,128);
+
+
+.searchAddressButton:hover{
+    background-color: rgb(95,0,128);
+    color: white;
 }
-.searchAddress{
+
+.searchAddressButton{
     display: block;
     padding: 0px 10px;
     text-align: center;
@@ -103,7 +100,7 @@ background-color: pink;
     border: 1px solid rgb( 95,0,128);
     border-radius: 4px;
 }
-.searchAddress > span{
+.searchAddressButton > span{
     font-size: 14px;
     font-weight: 500;
 }
@@ -118,6 +115,150 @@ background-color: pink;
     margin-right: 4px;
     vertical-align: middle;
 }
+
+.address{
+    padding: 0px 20px;
+}
+
+.bottomLine{
+    padding: 10px 0px;
+    border-bottom: 2px solid rgb(51,51,51);
+}
+.agreeFrame{
+    padding:  0px;
+}
+.agreeFrame-sub{
+    background-color:aqua;
+    width: 100%;
+    padding: 10px 0px 10px 20px;
+    display: inline-flex;
+}
+.agreeFrame-sub-sub1{
+    width: 139px;
+    padding-top: 12px;
+}
+.agreeFrame-sub-sub1 > .label{
+    font-weight: 500;
+    line-height: 20px;
+}
+.agreeFrame-sub-sub2{
+    background-color: pink;
+    flex: 1 1 0%;
+}
+.agree:first-of-type{
+    background-color: yellow;
+    flex-direction: column;
+    padding-top: 12px;
+    align-items: flex-start;
+}
+.agree{
+    display: flex;
+    padding: 8px 0px;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    justify-content: space-between;
+}
+.agreeFrame-sub-sub2  .label{
+    position: relative;
+    display: flex;
+    align-items: center;
+    vertical-align: top;
+    line-height: normal;
+    padding: 0px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+input[type=checkbox],
+input[type=radio]{
+    box-sizing: border-box;
+    padding: 0;
+    margin-right: 5px;
+}
+
+.p{
+    font-size: 12px;
+    color: rgb(102,102,102);
+    padding-top: 4px;
+    padding-left: 36px;
+}
+
+.agree-sub2{
+    display: flex;
+    align-items: center;
+}
+.essential{
+    padding-left: 5px;
+    color: rgb(153,153,153);
+}
+.viewTerms{
+    padding-right: 22px;
+    color: rgb(95,0,128);
+    letter-spacing: 0px;
+}
+.viewTerms:after{
+    content: "";
+    display: inline-block;
+    margin-left: 4px;
+    width: 6px;
+    height: 9px;
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjExIiB2aWV3Qm94PSIwIDAgNiAxMSI+CiAgICA8cGF0aCBmaWxsPSIjNUYwMDgwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xIDExTDYgNS41IDEgMCAwIDEuMSA0IDUuNSAwIDkuOXoiLz4KPC9zdmc+Cg==") 50% 50% / 6px 9px no-repeat;
+}
+
+.joinFrame{
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgb(247,247,247);
+    padding: 40px 0px;
+    background-color: yellow;
+}
+.buttonJoin{
+    width: 240px;
+    height: 56px;
+    display: block;
+    padding: 0px 10px;
+    text-align: center;
+    border-radius: 3px;
+    color: rgb(255,255,255);
+    background-color: rgb(95,0,128);
+}
+.buttonJoin > span{
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+}
+.buttonJoin:active{
+    background-color: rgb(255,255,255);
+    color: rgb(95,0,128);
+}
+
+.panel.address{
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,70%);
+    display: none;
+    position: fixed;
+}
+.panel.address.visible{
+    display: block;
+}
+.panel.address>.dialog{
+    top:50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    max-width: 27.5rem;
+    max-height: 30rem;
+    background-color: rgb(255,255,255);
+    position: absolute;
+    transform:translate(-50%,-50%);
+}
+
+
+
+
 
 
 
