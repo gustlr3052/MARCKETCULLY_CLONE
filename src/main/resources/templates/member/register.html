@@ -6,26 +6,33 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/register.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/main.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!--카카오 지 도 사용하기위한 script-->
+    <script defer th:src="@{/resources/scripts/register.js}"></script>
     <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/static/mainpage/resources/stylesheets/main.css">
-    <link rel="stylesheet" href="/static/mainpage/resources/stylesheets/topnav.css">
-    <link rel="stylesheet" href="/static/mainpage/resources/stylesheets/commons.css">
-    <link rel="stylesheet" href="/static/mainpage/resources/stylesheets/register.css">
-    <title>Title</title>
+
+    <title>회원가입</title>
 </head>
 <body>
     <div class="topNav">
         <div>빈공간</div>
         <div class="topNav-Nav">
             <div class="member" id="member">
-                <a class="sign-up">회원가입</a>
+                <a class="sign-up " href="#">회원가입</a>
                 <div class="null"></div>
-                <a class="login">로그인</a>
+                <a class="login" href="#">로그인</a>
                 <div class="null"></div>
-                <a class="clientCenter">고객센터</a>
+                <a class="clientCenter" href="#">고객센터</a>
             </div>
             <div class="image" id="image">
-                <img src="/static/mainpage/resources/images/marketkurly.png">
+                <img src="/resources/images/marketkurly.png" alt="메인로고임">
             </div>
             <div class="header" id="header">
                 <div class="header-head">
@@ -68,13 +75,15 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="email" name="email" placeholder="이메일 주소를 입력해주세요." type="text" required>
+                                <label>
+                                <input class="input" id="email" name="email" placeholder="이메일 주소를 입력해주세요." type="email"  >
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="doubleCheck">
-                            <input class="--object-button" name="emailSend" type="button" value="인증번호 확인">
+                            <input class="--object-button" name="emailSend" type="button" value="인증하기">
                         </div>
                     </div>
                 </div>
@@ -88,13 +97,15 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" name="emailAuthCode" placeholder="이메일 인증번호를 입력해주세요" type="text" disabled >
+                                <label>
+                                <input class="input" disabled name="emailAuthCode" placeholder="이메일 인증번호를 입력해주세요" type="text"  >
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div class="doubleCheck">
-                            <input class="--object-button"  name="emailVerify" type="button" value="인증번호 확인"  disabled >
+                            <input class="--object-button" disabled name="emailVerify" type="button" value="인증번호 확인"   >
                         </div>
                     </div>
                 </div>
@@ -109,7 +120,9 @@
                     <div class="--input">
                     <div class="--input-sub">
                         <div class="--input-sub-sub">
-                            <input class="input" id="password" name="password" placeholder="비밀번호를 입력해주세요." type="text" required>
+                            <label>
+                            <input class="input" id="password" name="password" placeholder="비밀번호를 입력해주세요." type="password" >
+                            </label>
                         </div>
                     </div>
                     </div>
@@ -130,7 +143,9 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="passwordCheck" name="passwordCheck" placeholder="비밀번호를 한번 더 입력해주세요." type="text" required>
+                                <label>
+                                <input class="input" id="passwordCheck" name="passwordCheck" placeholder="비밀번호를 한번 더 입력해주세요." type="password" >
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -150,7 +165,9 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="name" name="name" placeholder="이름을 입력해주세요." type="text" required>
+                                <label>
+                                <input class="input" id="name" name="name" placeholder="이름을 입력해주세요." type="text" >
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -171,7 +188,9 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요." type="text" required>
+                                <label>
+                                <input class="input" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요." type="text" >
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -192,7 +211,9 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="phone" name="phone" placeholder="숫자만 입력해주세요." type="text" required>
+                                <label>
+                                <input class="input" id="contact" name="contact" placeholder="숫자만 입력해주세요." type="text" >
+                                </label>
                             </div>
                         </div>
 
@@ -213,14 +234,7 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <button class="searchAddressButton" type="button"
-                                name="searchAddress">
-                                    <span class="searchIcon">
-                                        <img src="/static/mainpage/resources/images/ico_search.svg"
-                                        class="searchIcon-sub">
-                                        주소검색
-                                    </span>
-                                </button>
+                                <input class="addressFind" name="addressFind" type="button" value="주소찾기">
                             </div>
                         </div>
                     </div>
@@ -241,7 +255,9 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="addressPostal" name="addressPostal" placeholder="우편번호" type="text" required>
+                                <label>
+                                <input class="input" id="addressPostal" name="addressPostal" placeholder="우편번호" type="text" >
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -262,7 +278,9 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="addressPrimary" name="addressPrimary" placeholder="기본주소" type="text" required>
+                                <label>
+                                <input class="input" id="addressPrimary" name="addressPrimary" placeholder="기본주소" type="text" >
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -283,7 +301,9 @@
                     <div class="--input">
                         <div class="--input-sub">
                             <div class="--input-sub-sub">
-                                <input class="input" id="addressSecondary" name="addressSecondary" placeholder="상세 주소를 입력해주세요." type="text" required>
+                                <label>
+                                <input class="input" id="addressSecondary" name="addressSecondary" placeholder="상세 주소를 입력해주세요." type="text" >
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -345,7 +365,7 @@
                     </div>
 
                 <div class="joinFrame">
-                    <button class="buttonJoin" type="submit">
+                    <button class="buttonJoin" rel="buttonJoin" type="submit">
                         <span>가입하기</span>
                     </button>
 
@@ -354,10 +374,7 @@
 
 
         </div>
-        </form>>
-        </div>
+        </form>
     </div>
-
-
 </body>
 </html>

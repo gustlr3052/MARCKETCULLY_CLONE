@@ -12,12 +12,13 @@
     <artifactId>study-member-bbs</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>study-member-bbs</name>
-    <description>study-member-bbs</description>
+    <name>Project</name>
+    <description>Project</description>
     <properties>
         <java.version>11</java.version>
     </properties>
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>

@@ -1,3 +1,9 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Rampart+One&display=swap');
+
+
+
+
 .--main{
     min-width: 1050px;
     margin-top: 50px;
@@ -17,7 +23,7 @@
 
 .--main-title-sub{
     width: 640px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 .--main-title-sub >.head{
 
@@ -33,7 +39,7 @@
 }
 
 .--main-content{
-    padding: 0px;
+    padding: 0;
 }
 .content-common{
     display: inline-flex;
@@ -54,7 +60,7 @@ background-color: pink;
     flex: 1 1 0%;
 }
 .--input-sub{
-    padding-bottom: 0px;
+    padding-bottom: 0;
 }
 .--input-sub-sub{
     position: relative;
@@ -63,7 +69,7 @@ background-color: pink;
 .input{
     width: 100%;
     height: 46px;
-    padding: 0px 11px 1px 15px;
+    padding: 0 11px 1px 15px;
     border-radius: 4px;
     border: 1px solid rgb(221,221,221);
     font-size: 16px;
@@ -73,6 +79,11 @@ background-color: pink;
     outline: none;
     box-sizing: border-box;
 }
+.input:disabled{
+    color: white;
+    background-color:rgb(171,178,185);
+}
+
 .doubleCheck{
     width: 120px;
     margin-left: 8px;
@@ -83,14 +94,14 @@ background-color: pink;
 }
 
 
-.searchAddressButton:hover{
+.addressFind:hover{
     background-color: rgb(95,0,128);
     color: white;
 }
 
-.searchAddressButton{
+.addressFind{
     display: block;
-    padding: 0px 10px;
+    padding: 0 10px;
     text-align: center;
     overflow: hidden;
     width: 100%;
@@ -99,11 +110,10 @@ background-color: pink;
     background-color: rgb(255,255,255);
     border: 1px solid rgb( 95,0,128);
     border-radius: 4px;
-}
-.searchAddressButton > span{
     font-size: 14px;
     font-weight: 500;
 }
+
 
 .searchIcon{
     display: block;
@@ -117,20 +127,20 @@ background-color: pink;
 }
 
 .address{
-    padding: 0px 20px;
+    padding: 0 20px;
 }
 
 .bottomLine{
-    padding: 10px 0px;
+    padding: 10px 0;
     border-bottom: 2px solid rgb(51,51,51);
 }
 .agreeFrame{
-    padding:  0px;
+    padding:  0;
 }
 .agreeFrame-sub{
     background-color:aqua;
     width: 100%;
-    padding: 10px 0px 10px 20px;
+    padding: 10px 0 10px 20px;
     display: inline-flex;
 }
 .agreeFrame-sub-sub1{
@@ -153,7 +163,7 @@ background-color: pink;
 }
 .agree{
     display: flex;
-    padding: 8px 0px;
+    padding: 8px 0;
     -webkit-box-pack: justify;
     -webkit-box-align: center;
     justify-content: space-between;
@@ -164,7 +174,7 @@ background-color: pink;
     align-items: center;
     vertical-align: top;
     line-height: normal;
-    padding: 0px;
+    padding: 0;
     font-weight: 500;
     font-size: 18px;
 }
@@ -173,7 +183,7 @@ input[type=checkbox],
 input[type=radio]{
     box-sizing: border-box;
     padding: 0;
-    margin-right: 5px;
+    margin-right: 1rem;
 }
 
 .p{
@@ -194,7 +204,7 @@ input[type=radio]{
 .viewTerms{
     padding-right: 22px;
     color: rgb(95,0,128);
-    letter-spacing: 0px;
+    letter-spacing: 0;
 }
 .viewTerms:after{
     content: "";
@@ -209,14 +219,14 @@ input[type=radio]{
     display: flex;
     justify-content: center;
     border-top: 1px solid rgb(247,247,247);
-    padding: 40px 0px;
+    padding: 40px 0;
     background-color: yellow;
 }
 .buttonJoin{
     width: 240px;
     height: 56px;
     display: block;
-    padding: 0px 10px;
+    padding: 0 10px;
     text-align: center;
     border-radius: 3px;
     color: rgb(255,255,255);
@@ -232,6 +242,8 @@ input[type=radio]{
     color: rgb(95,0,128);
 }
 
+
+/*주소찾기 카카오 주소찾기 끼워넣기 위한 Frame 설정하기 */
 .panel.address{
     top:0;
     left: 0;
