@@ -14,7 +14,6 @@ form['emailSend'].addEventListener('click',()=> { // form['name 값']
     }
     alert('인증번호를 전송하고 있습니다. \n\n 잠시만 기다려 주세요.');
 
-
     const xhr = new XMLHttpRequest();
     const formData = new FormData();
     formData.append('email',form['email'].value);
@@ -23,7 +22,10 @@ form['emailSend'].addEventListener('click',()=> { // form['name 값']
     xhr.onreadystatechange = () =>{
       if(xhr.readyState === XMLHttpRequest.DONE){
         if(xhr.status >= 200 && xhr.status <300) {
+            const responseObject = JSON.parse(xhr.responseText); // responseText 객체화시켜 문자열을 객체화
+            switch (responseObject['result']){
 
+            }
         }else{
 
         }

@@ -36,7 +36,7 @@ public class MemberController {
     @ResponseBody
     public String postEmail(@RequestParam(value = "email")String email){
 
-        System.out.println(email);
+        System.out.println();
         return "";
     }
 
