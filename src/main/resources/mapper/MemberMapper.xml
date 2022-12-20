@@ -3,5 +3,23 @@
 
 <mapper namespace="dev.hsjung.project.mapper.IMemberMapper">
 
+    <select id="selectUserByEmail"
+            resultType="dev.hsjung.project.entities.UserEntity">
+        SELECT
+               `index`                  AS `index`,
+               `email`                  AS `email`,
+               `password`               AS `password`,
+               `nickname`               AS `nickname`,
+               `name`                   AS `name`,
+               `contact`                AS `contact`,
+               `address_postal`         AS `addressPostal`,
+               `address_primary`        AS `addressPrimary`,
+               `address_secondary`      AS `addressSecondary`,
+               `registered_on`          AS `registeredOn`
+        FROM `member`.`users`
+        WHERE BINARY `index` = #{index}
+        LIMIT 1
+    </select>
+
 
 </mapper>
