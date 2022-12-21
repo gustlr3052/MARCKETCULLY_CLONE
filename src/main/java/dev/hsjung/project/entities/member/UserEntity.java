@@ -1,4 +1,4 @@
-package dev.hsjung.project.entities;
+package dev.hsjung.project.entities.member;
 
 import java.util.Date;
 import java.util.Objects;

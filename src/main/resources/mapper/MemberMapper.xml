@@ -4,7 +4,7 @@
 <mapper namespace="dev.hsjung.project.mapper.IMemberMapper">
 
     <select id="selectUserByEmail"
-            resultType="dev.hsjung.project.entities.UserEntity">
+            resultType="dev.hsjung.project.entities.member.UserEntity">
         SELECT
                `index`                  AS `index`,
                `email`                  AS `email`,
@@ -20,6 +20,47 @@
         WHERE BINARY `index` = #{index}
         LIMIT 1
     </select>
+
+    <select id="selectEmailAuthByEmailCodeSalt"
+            resultType="dev.hsjung.project.entities.member.EmailAuthEntity">
+        SELECT
+            `index` AS `index`,
+            `email` AS `email`,
+            `code` AS `code`,
+            `salt` AS `salt`,
+            `created_on` AS `createdOn`,
+            `expires_on` AS `expiresOn`,
+            `expired_on_flag` AS `isExpired`
+        FROM `member`.`email_auths`
+        WHERE BINARY `index` = #{index}
+        LIMIT 1
+
+    </select>
+
+    <insert id="insertEmailAuth"
+            parameterType="dev.hsjung.project.entities.member.EmailAuthEntity">
+    INSERT INTO `member`.`email_auths` (`index`, `email`, `code`, `salt`, `created_on`, `expires_on`, `expired_on_flag`)
+    VALUES (#{index},#{email},#{code},#{salt},#{createdOn},#{expiresOn},#{isExpired})
+    </insert>
+
+    <update id="updateEmailAuth"
+    parameterType="dev.hsjung.project.entities.member.EmailAuthEntity">
+
+        UPDATE `member`.`email_auths`
+        SET
+            `email`                     = #{email},
+            `code`                      = #{code},
+            `salt`                      = #{slat},
+            `created_on`                = #{createdOn},
+            `expires_on`                = #{expiresOn},
+            `expired_on_flag`           = #{isExpired}
+        WHERE BINARY `index` = #{index}
+        LIMIT 1
+    </update>
+
+
+
+
 
 
 </mapper>

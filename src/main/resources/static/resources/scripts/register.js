@@ -24,16 +24,88 @@ form['emailSend'].addEventListener('click',()=> { // form['name 값']
         if(xhr.status >= 200 && xhr.status <300) {
             const responseObject = JSON.parse(xhr.responseText); // responseText 객체화시켜 문자열을 객체화
             switch (responseObject['result']){
-
+                case 'success':
+                    form['email'].setAttribute('disabled','disabled');
+                    form['emailSend'].setAttribute('disabled','disabled');
+                    form['emailAuthCode'].setAttribute('disabled','disabled');
+                    form['emailAuthSalt'].value = responseObject['salt'];
+                    form['emailAuthCode'].focus();
+                    form['emailVerify'].removeAttribute('disabled');
+                    break;
+                case 'email_duplicated':
+                    alert('해당 이메일은 이미 사용 중입니다.');
+                    form['email'].focus();
+                    form['email'].select();
+                    break;
+                default:
+                    alert('알 수 없는 이유로 인증 번호를 전송하지 못 하였습니다. 잠시 후 다시 시도해 주세요.');
+                    form['email'].focus();
+                    form['email'].select();
             }
         }else{
-
+            alert('서버와 통신하지 못하였습니다. 잠시후 다시 시도해 주세요.');
         }
       }
     };
     xhr.send(formData);
 
 });
+
+form['emailVerify'].addEventListener('click',()=>{
+    if(form['emailVerify'].value === ''){
+        alert('인증번호를 입력해 주세요.');
+        form['emailAuthCode'].focus();
+        return;
+    }
+    if (!new RegExp('^(\\d{6})$').test(form['emailAuthCode'].value)) {
+       alert('올바른 인증 번호를 입력해주세요.');
+        form['emailAuthCode'].focus();
+        form['emailAuthCode'].select();
+        return;
+    }
+
+    const xhr = new XMLHttpRequest();
+    const formData = new FormData();
+    formData.append('email', form['email'].value);
+    formData.append('code', form['emailAuthCode'].value);
+    formData.append('salt', form['emailAuthSalt'].value);
+    xhr.open('PATCH', 'email');
+    xhr.onreadystatechange = () =>{
+      if(xhr.readyState === XMLHttpRequest.DONE){
+        if(xhr.status >= 200 && xhr.status <300) {
+            const responseObject = JSON.parse(xhr.responseText);
+            switch (responseObject['result']){
+                case 'expired':
+                    alert('인증 정보가 만료되었습니다. 다시 시도해 주세요.');
+                    form['email'].removeAttribute('disabled');
+                    form['email'].focus();
+                    form['email'].select();
+                    form['emailSend'].removeAttribute('disabled');
+                    form['emailAuthCode'].value = '';
+                    form['emailAuthCode'].setAttribute('disabled','disabled');
+                    form['emailAuthSalt'].value = '';
+                    form['emailVerify'].setAttribute('disabled','disabled');
+                    break;
+                case 'success':
+                    alert('이메일이 정상적으로 인증되었습니다.');
+                    form['emailAuthCode'].setAttribute('disabled','disabled');
+                    form['emailVerify'].setAttribute('disabled','disabled');
+                    form['password'].focus();
+                    break;
+                default:
+                    alert('인증 번호가 올바르지 않습니다.');
+                    form['emailAuthCode'].focus();
+                    form['emailAuthCode'].select();
+            }
+
+        }else{
+            alert('서버와 통신하지 못하였습니다. 잠시후 다시 시도해 주세요,');
+        }
+      }
+    };
+    xhr.send(formData);
+
+})
 
 
 
