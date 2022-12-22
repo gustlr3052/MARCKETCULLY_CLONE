@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
+  <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
+  <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!--카카오 지 도 사용하기위한 script-->
+  <script defer th:src="@{/resources/scripts/register.js}"></script>
+  <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
+
+  <title>로그인</title>
+</head>
+<body>
+<div class="topNav">
+  <div>빈공간</div>
+  <div class="topNav-Nav">
+    <div class="member" id="member">
+      <a class="sign-up " href="#">회원가입</a>
+      <div class="null"></div>
+      <a class="login" href="#">로그인</a>
+      <div class="null"></div>
+      <a class="clientCenter" href="#">고객센터</a>
+    </div>
+    <div class="image" id="image">
+      <img src="/resources/images/marketkurly.png" alt="메인로고임">
+    </div>
+    <div class="header" id="header">
+      <div class="header-head">
+        <ul>
+          <li>
+            <span class="category">신상품</span>
+          </li>
+          <li>
+            <span class="category">베스트</span>
+          </li>
+          <li>
+            <span class="category">알뜰쇼핑</span>
+          </li>
+          <li>
+            <span class="category">특가/혜택</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="--main"></div>
+</body>
+</html>

@@ -7,10 +7,12 @@ form['emailSend'].addEventListener('click',()=> { // form['name 값']
     if (form['email'].value === '') { //인증하기를 클릭하였을때
         alert('이메일을 입력해주세요.');// 값이 비어있으면 이메일을 입력해주세요.라면서
         form['email'].focus();// 이메일주소 입력하기에 포커스 두기
+        return;
     }
     if (!new RegExp('^(?=.{9,50}$)([\\da-zA-Z\\-_.]{4,})@([\\da-z\\-]{2,}\\.)?([\\da-z\\-]{2,})\\.([a-z]{2,15})(\\.[a-z]{2})?$').test(form['email'].value)) { //올바른 이메일 주소가 아닐때
         alert('올바른 이메일 주소를 입력해주세요.');                    //올바른 이메일 주소 입력하라는 '알림'
-        form['email'].focus();                                    // 이메일 입력창에 포커스를 둔다.
+        form['email'].focus();                               // 이메일 입력창에 포커스를 둔다.
+        return;
     }
     alert('인증번호를 전송하고 있습니다. \n\n 잠시만 기다려 주세요.');
 
@@ -25,10 +27,11 @@ form['emailSend'].addEventListener('click',()=> { // form['name 값']
             const responseObject = JSON.parse(xhr.responseText); // responseText 객체화시켜 문자열을 객체화
             switch (responseObject['result']){
                 case 'success':
+                    alert('인증번호를 전송하였습니다. 전송된 인증번호는 5분간만 유효합니다.');
                     form['email'].setAttribute('disabled','disabled');
                     form['emailSend'].setAttribute('disabled','disabled');
-                    form['emailAuthCode'].setAttribute('disabled','disabled');
-                    form['emailAuthSalt'].value = responseObject['salt'];
+                    form['emailAuthCode'].removeAttribute('disabled'); // 인증번호 입력란 활성화시켜야지
+                    form['emailAuthSalt'].value = responseObject['salt']; // 인증번호 값 = 객체에서 salt값 비교
                     form['emailAuthCode'].focus();
                     form['emailVerify'].removeAttribute('disabled');
                     break;
@@ -50,6 +53,9 @@ form['emailSend'].addEventListener('click',()=> { // form['name 값']
     xhr.send(formData);
 
 });
+
+
+// ▼ 인증번호 확인
 
 form['emailVerify'].addEventListener('click',()=>{
     if(form['emailVerify'].value === ''){
@@ -121,7 +127,8 @@ form['addressFind'].addEventListener('click', () => {
             form['addressSecondary'].focus();               //상세주소 초점
         }
     }).embed(form.querySelector('[rel = "addressFindPanelDialog"]'));
-    form.querySelector('[rel="addressFindPanel"]').classList.add('visible') //패널 보이기
+    form.querySelector('[rel="addressFindPanel"]').classList.add('visible'); //패널 보이기
+
 
 });
 form.querySelector('[rel= "addressFindPanel"]').addEventListener('click', () => {
@@ -139,21 +146,63 @@ form.querySelector('[rel="buttonJoin"]').addEventListener('click',()=>{
         alert('비밀번호가 일치하지 않습니다.');                      // 비밀번호가 일치하지 않다는 '알림'
         form['passwordCheck'].focus();                          // 패스워드 확인에 초점
         form['passwordCheck'].select();
+        return;
     }
     if(form['name'].value ===''){
         alert('이름을 입력해주세요');
         form['name'].focus();
+        return;
     }
     if(form['nickname'].value ===''){
         alert('닉네임을 입력해주세요');
         form['nickname'].focus();
+        return;
     }
     if(form['contact'].value ===''){
         alert('휴대폰번호를 입력해주세요');
         form['contact'].focus();
+        return;
     }
     if(form['addressPostal'].value ===''){
         alert('올바른 주소를 입력해주세요');
         form['addressPostal'].focus();
+        return;
     }
+    alert('회원가입 진행 중입니다. \n\n 잠시만 기다려 주세요.');
+    const xhr = new XMLHttpRequest();
+    const formData = new FormData();
+    formData.append('email', form['email'].value);
+    formData.append('code', form['emailAuthCode'].value);
+    formData.append('salt', form['emailAuthSalt'].value);
+    formData.append('password', form['password'].value);
+    formData.append('name', form['name'].value);
+    formData.append('nickname', form['nickname'].value);
+    formData.append('contact', form['contact'].value);
+    formData.append('addressPostal', form['addressPostal'].value);
+    formData.append('addressPrimary', form['addressPrimary'].value);
+    formData.append('addressSecondary', form['addressSecondary'].value);
+
+    xhr.open('POST', '/member/register');
+    xhr.onreadystatechange = () =>{
+      if(xhr.readyState === XMLHttpRequest.DONE){
+        if(xhr.status >= 200 && xhr.status <300) {
+            const responseObject = JSON.parse(xhr.responseText);
+            switch (responseObject['result']){
+                case 'success':
+                    alert('회원가입 완료 \n\n 즐거운 쇼핑 되세요~^^');
+                    break;
+                case 'email_not_verified':
+                    alert('이메일 인증이 완료되지 않았습니다.');
+                    break;
+                default:
+                    alert('알수 없는 이유로 회원가입에 실패하였습니다. 잠시후 다시 시도해주세요.');
+
+            }
+
+        }else{
+            alert('서버와 통신하지 못하였습니다. 잠시후 다시 시도해 주세요');
+        }
+      }
+    };
+    xhr.send(formData);
 });

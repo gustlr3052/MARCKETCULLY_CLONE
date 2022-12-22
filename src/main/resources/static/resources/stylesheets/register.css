@@ -45,7 +45,7 @@
     display: inline-flex;
     width: 100%;
     padding: 10px 20px;
-background-color: pink;
+
 }
 .content-common >.content-common-sub{
     width: 139px;
@@ -79,10 +79,7 @@ background-color: pink;
     outline: none;
     box-sizing: border-box;
 }
-.input:disabled{
-    color: white;
-    background-color:rgb(171,178,185);
-}
+
 
 .doubleCheck{
     width: 120px;
@@ -138,7 +135,7 @@ background-color: pink;
     padding:  0;
 }
 .agreeFrame-sub{
-    background-color:aqua;
+
     width: 100%;
     padding: 10px 0 10px 20px;
     display: inline-flex;
@@ -152,11 +149,11 @@ background-color: pink;
     line-height: 20px;
 }
 .agreeFrame-sub-sub2{
-    background-color: pink;
+
     flex: 1 1 0%;
 }
 .agree:first-of-type{
-    background-color: yellow;
+
     flex-direction: column;
     padding-top: 12px;
     align-items: flex-start;
@@ -220,7 +217,7 @@ input[type=radio]{
     justify-content: center;
     border-top: 1px solid rgb(247,247,247);
     padding: 40px 0;
-    background-color: yellow;
+
 }
 .buttonJoin{
     width: 240px;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="dev.hsjung.project.mapper.IMemberMapper">
+<mapper namespace="dev.hsjung.project.mappers.IMemberMapper">
 
     <select id="selectUserByEmail"
             resultType="dev.hsjung.project.entities.member.UserEntity">
@@ -17,27 +17,32 @@
                `address_secondary`      AS `addressSecondary`,
                `registered_on`          AS `registeredOn`
         FROM `member`.`users`
-        WHERE BINARY `index` = #{index}
+        WHERE BINARY `email` = #{email}
         LIMIT 1
     </select>
 
     <select id="selectEmailAuthByEmailCodeSalt"
             resultType="dev.hsjung.project.entities.member.EmailAuthEntity">
         SELECT
-            `index` AS `index`,
-            `email` AS `email`,
-            `code` AS `code`,
-            `salt` AS `salt`,
-            `created_on` AS `createdOn`,
-            `expires_on` AS `expiresOn`,
-            `expired_on_flag` AS `isExpired`
+            `index`                     AS `index`,
+            `email`                     AS `email`,
+            `code`                      AS `code`,
+            `salt`                      AS `salt`,
+            `created_on`                AS `createdOn`,
+            `expires_on`                AS `expiresOn`,
+            `expired_on_flag`           AS `isExpired`
         FROM `member`.`email_auths`
-        WHERE BINARY `index` = #{index}
+        WHERE BINARY `email` = #{email}
+          AND BINARY `code`=#{code}
+          AND BINARY `salt`=#{salt}
         LIMIT 1
 
     </select>
 
     <insert id="insertEmailAuth"
+            useGeneratedKeys="true"
+            keyColumn="index"
+            keyProperty="index"
             parameterType="dev.hsjung.project.entities.member.EmailAuthEntity">
     INSERT INTO `member`.`email_auths` (`index`, `email`, `code`, `salt`, `created_on`, `expires_on`, `expired_on_flag`)
     VALUES (#{index},#{email},#{code},#{salt},#{createdOn},#{expiresOn},#{isExpired})
@@ -50,13 +55,19 @@
         SET
             `email`                     = #{email},
             `code`                      = #{code},
-            `salt`                      = #{slat},
+            `salt`                      = #{salt},
             `created_on`                = #{createdOn},
             `expires_on`                = #{expiresOn},
             `expired_on_flag`           = #{isExpired}
         WHERE BINARY `index` = #{index}
         LIMIT 1
     </update>
+
+    <insert id="insertUser"
+            parameterType="dev.hsjung.project.entities.member.UserEntity">
+    INSERT INTO `member`.`users`(`email`, `password`, `nickname`, `name`, `contact`, `address_postal`, `address_primary`, `address_secondary`)
+    VALUES (#{email},#{password},#{nickname},#{name},#{contact},#{addressPostal},#{addressPrimary},#{addressSecondary}) -- registeredOn은 현재시간이므로 있으면 안되죠~
+    </insert>
 
 
 

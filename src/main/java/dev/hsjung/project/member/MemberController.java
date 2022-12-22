@@ -10,12 +10,10 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.mail.MessagingException;
-import javax.print.attribute.standard.Media;
 import java.security.NoSuchAlgorithmException;
 
 @Controller
@@ -29,6 +27,8 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+
+    // member/register 보이기
     @RequestMapping(value="register",
     method = RequestMethod.GET,
     produces = MediaType.TEXT_HTML_VALUE)
@@ -65,13 +65,25 @@ public class MemberController {
         return responseObject.toString();
     }
 
-//    @RequestMapping(value = "register",
-//    method = RequestMethod.POST,
-//    produces = MediaType.APPLICATION_JSON_VALUE)
-//    @ResponseBody
-//    public String postRegister(UserEntity user, EmailAuthEntity emailAuth){
-//        Enum<?> result = this.memberService.register()
-//    }
+    @RequestMapping(value = "register",
+    method = RequestMethod.POST,
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String postRegister(UserEntity user, EmailAuthEntity emailAuth){
+        Enum<?> result = this.memberService.register(user,emailAuth);
+        JSONObject responseObject = new JSONObject();
+        responseObject.put("result",result.name().toLowerCase());
+        return responseObject.toString();
+
+    }
+
+    @RequestMapping(value = "login",
+    method = RequestMethod.GET,
+    produces = MediaType.TEXT_HTML_VALUE)
+    public ModelAndView getLogin(){
+        ModelAndView modelAndView = new ModelAndView("member/login");
+        return modelAndView;
+    }
 
 
 

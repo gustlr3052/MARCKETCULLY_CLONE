@@ -4,10 +4,12 @@ package dev.hsjung.project.services;
 import dev.hsjung.project.entities.member.EmailAuthEntity;
 import dev.hsjung.project.entities.member.UserEntity;
 import dev.hsjung.project.enums.CommonResult;
+import dev.hsjung.project.enums.RegisterResult;
 import dev.hsjung.project.enums.SendEmailAuthResult;
 import dev.hsjung.project.enums.VerifyEmailAuthResult;
 import dev.hsjung.project.interfaces.IResult;
-import dev.hsjung.project.mapper.IMemberMapper;
+import dev.hsjung.project.mappers.IMemberMapper;
+import dev.hsjung.project.utils.CryptoUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,7 @@ public class MemberService {
 
     @Transactional
     public Enum <? extends IResult> sendEmailAuth(UserEntity user, EmailAuthEntity emailAuth) throws NoSuchAlgorithmException, MessagingException {
-        UserEntity existingUser = this.memberMapper.selectUserByIndex(user.getIndex()); //index 가져와서 existingUser 에 잡아 넣기
+        UserEntity existingUser = this.memberMapper.selectUserByEmail(user.getEmail()); //index 가져와서 existingUser 에 잡아 넣기
         if(existingUser != null) { // 유저가 중복될때
             return SendEmailAuthResult.EMAIL_DUPLICATED;
         }                           //중복 안되고 인증 절차 거칠때 인증 처리 로직
@@ -106,11 +108,27 @@ public class MemberService {
         if(existingEmailAuth.getExpiresOn().compareTo(new Date()) < 0){
             return VerifyEmailAuthResult.EXPIRED;
         }
-        existingEmailAuth.setExpired(true);
-        if(this.memberMapper.updateEmailAuth(existingEmailAuth)==0){
+        existingEmailAuth.setExpired(true); // 인증확인됨
+        if(this.memberMapper.updateEmailAuth(existingEmailAuth)==0){ // 업데이트 즉 수정된 값이 0이라면 ,없다면
             return CommonResult.FAILURE;
         }
         return  CommonResult.SUCCESS;
+    }
+
+    public Enum<? extends IResult> register(UserEntity user,EmailAuthEntity emailAuth){
+        EmailAuthEntity existingEmailAuth = this.memberMapper.selectEmailAuthByEmailCodeSalt(
+                emailAuth.getEmail(),
+                emailAuth.getCode(),
+                emailAuth.getSalt());
+        if(existingEmailAuth == null || !existingEmailAuth.isExpired()){
+            return RegisterResult.EMAIL_NOT_VERIFIED;
+        }
+        user.setPassword(CryptoUtils.hashSha512(user.getPassword()));
+
+        if(this.memberMapper.insertUser(user)==0){
+            return CommonResult.FAILURE;
+        }
+        return CommonResult.SUCCESS;
     }
 
 }
