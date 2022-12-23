@@ -8,7 +8,7 @@ background-color: green;
 .topNav > .topNav-Nav{
   position: relative;
 }
-.topNav > .topNav-Nav > .member{
+.topNav > .topNav-Nav > .Nav-member{
   position: absolute;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ background-color: green;
   top: 0;
   background-color: hotpink;
 }
-.member>.sign-up{
+.Nav-member>.Nav-sign-up{
   display: block;
   color:rgb(95,0,128);
   cursor: pointer;
@@ -30,23 +30,23 @@ background-color: green;
   margin: 0px 12px;
   background-color: rgb(217,217,217);
 }
-.member >.login{
+.Nav-member >.Nav-login{
   display: block;
   cursor: pointer;
 }
-.member >.clientCenter{
+.Nav-member >.Nav-client{
   display: block;
   cursor: pointer;
 }
 
-.topNav > .topNav-Nav > .image{
+.topNav > .topNav-Nav > .Nav-image{
   background-color: yellow;
   display: flex;
   flex-direction:row;
   justify-content: center;
   position: center;
 }
-.topNav > .topNav-Nav > .header{
+.topNav > .topNav-Nav > .Nav-header{
   display:block;
   min-width: 1050px;
   position: relative;
@@ -57,7 +57,7 @@ background-color: green;
   width: 100%;
 
 }
-.topNav >.topNav-Nav >.header >.header-head{
+.topNav >.topNav-Nav >.Nav-header >.header-head{
   width: 1050px;
   height: 56px;
   display: flex;
@@ -68,7 +68,7 @@ background-color: green;
 
 
 }
-.topNav > .topNav-Nav > .header ul {
+.topNav > .topNav-Nav > .Nav-header ul {
   background-color: wheat;
   display: flex;
 
@@ -78,7 +78,7 @@ background-color: green;
   padding-inline-start:40px;
 
 }
-.topNav > .topNav-Nav > .header ul li {
+.topNav > .topNav-Nav > .Nav-header ul li {
   align-items: center;
   display: flex;
   justify-content: center;
