@@ -131,4 +131,16 @@ public class MemberService {
         return CommonResult.SUCCESS;
     }
 
+    public Enum<? extends IResult> login(UserEntity user){
+        UserEntity existingUser = this.memberMapper.selectUserByEmail(user.getEmail());
+        if(existingUser == null){
+            return CommonResult.FAILURE;
+        }
+        user.setPassword(CryptoUtils.hashSha512(user.getPassword()));
+        if(!user.getPassword().equals(existingUser.getPassword())){
+            return CommonResult.FAILURE;
+        }
+        return CommonResult.SUCCESS;
+    }
+
 }

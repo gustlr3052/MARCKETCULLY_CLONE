@@ -14,45 +14,13 @@
     <link rel="stylesheet" th:href="@{/resources/stylesheets/main.css}">
     <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
     <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/footer.css}">
 
         <title>컬리마켓</title>
 
 </head>
 <body>
-    <div class="topNav" th:fragment="topNav">
-        <div>빈공간</div>
-        <div class="topNav-Nav">
-            <div class="Nav-member" id="member">
-                <a class="Nav-sign-up">회원가입</a>
-                <div class="null"></div>
-                <a class="Nav-login">로그인</a>
-                <div class="null"></div>
-                <a class="Nav-client">고객센터</a>
-            </div>
-            <div class="Nav-image" id="image">
-                <img src="/resources/images/marketkurly.png">
-            </div>
-            <div class="Nav-header" id="header">
-                <div class="header-head">
-                    <ul>
-                        <li>
-                            <span class="category">신상품</span>
-                        </li>
-                        <li>
-                            <span class="category">베스트</span>
-                        </li>
-                        <li>
-                            <span class="category">알뜰쇼핑</span>
-                        </li>
-                        <li>
-                            <span class="category">특가/혜택</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<th:block th:replace="~{fragment/topNav :: div}"></th:block>
 
     <div class="main" id="main">
         <div class="main_banners">
@@ -450,9 +418,36 @@
         </div>
     </div>
 
-    <div class="footer" id="footer">
+<footer class="footer" id="footer">
+    <div class="footer-Container">
+        <div class="notice-Container">
+            <h2>마켓컬리 클론코딩</h2>
+            <a class="content">마켓컬리 클론코딩 페이지 입니다. </a>
+        </div>
+        <div class="footer-menu-container">
+            <ul class="footer-menu">
+                <li>
+                    <a>공지사항</a>
+                </li>
+                <li>
+                    <a>회원가입</a>
+                </li>
+                <li>
+                    <a>로그인</a>
+                </li>
+                <li>
+                    <a>로그아웃</a>
+                </li>
+            </ul>
 
+            <span class="warning">
+                "해당 사이트는 개발자 포트폴리오 공부용으로 만들어진 웹사이트이며 실제 기능이 작동하지 않습니다."
+                <br>
+                "또한 마켓컬리 (kurly.com) 사이트를 오마주했음을 밝힘과 동시에 그 어떤 저작물의 권리를 주장하지 않습니다.
+            </span>
+        </div>
     </div>
+</footer>
 
 
 

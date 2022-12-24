@@ -25,7 +25,9 @@
     <div class="Nav-member" id="member">
       <a class="Nav-sign-up">회원가입</a>
       <div class="null"></div>
-      <a class="Nav-login">로그인</a>
+      <a class="Nav-login" th:if ="${session.user == null}" th:href="@{/member/login}">로그인</a>
+      <div class="null"></div>
+      <a class="Nav-logout"  th:if ="${session.user != null}" th:href="@{/member/logout}">로그아웃</a>
       <div class="null"></div>
       <a class="Nav-client">고객센터</a>
     </div>
@@ -53,14 +55,8 @@
 
   </div>
 </div>
-
-<div class="footer" id="footer">
-
-</div>
-
-
-
-
 </body>
+
+
 
 </html>

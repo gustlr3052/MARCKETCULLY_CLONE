@@ -12,40 +12,43 @@
   <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
   <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
   <link rel="stylesheet" th:href="@{/resources/stylesheets/login.css}">
+
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!--카카오 지 도 사용하기위한 script-->
 
   <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
+  <script defer th:src="@{/resources/scripts/login.js}"></script>
 
   <title>로그인</title>
 </head>
 <body>
 <th:block th:replace="~{fragment/topNav :: div}"></th:block>
+<!--header-nav임-->
 
 <div class="main-login">
   <div class="login-title">로그인</div>
   <div class="loginContent">
-    <div class="form">
+    <form class="form" id="form">
       <div class="form-input">
         <div class="inputFrame">
           <div class="id-input">
-            <input class="inputCommon" type="text" name="id" placeholder="아이디를 입력해주세요.">
+            <label class="label">
+            <input class="inputCommon" type="email" name="email" placeholder="이메일을 입력해주세요.">
+            </label>
           </div>
         </div>
         <div class="inputFrame">
           <div class="pw-input">
-            <input class ="inputCommon" type="text" name="pw" placeholder="비밀번호를 입력해주세요.">
+            <label class="label">
+            <input class ="inputCommon" type="password" name="password" placeholder="비밀번호를 입력해주세요.">
+            </label>
           </div>
         </div>
       </div>
       <div class="button-common">
-        <button class="loginButton">
-          <span>로그인</span>
-        </button>
-        <button class="registerButton">
-          <span>회원가입</span>
-        </button>
+        <input class="loginButton" name="login" type="button" value="로그인">
+        <input class="registerButton" name="register" type="button" value="회원가입">
       </div>
-    </div>
+    </form>
   </div>
 </div>
 </body>

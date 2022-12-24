@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpSession;
 import java.security.NoSuchAlgorithmException;
 
 @Controller
@@ -85,6 +86,31 @@ public class MemberController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "login",
+    method = RequestMethod.POST,
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String postLogin(HttpSession session,UserEntity user){
+        Enum<?> result = this.memberService.login(user);
+        if(result == CommonResult.SUCCESS){
+            session.setAttribute("user",user);
+            System.out.println("이메일/비밀번호 맞음");
+        }else{
+            System.out.println("이메일/비밀번호 틀림");
+        }
+        JSONObject responseObject = new JSONObject();
+        responseObject.put("result",result.name().toLowerCase());
+        return responseObject.toString();
+    }
+
+    @RequestMapping(value = "logout",
+    method = RequestMethod.GET,
+    produces = MediaType.TEXT_HTML_VALUE)
+    public  ModelAndView getLogout(HttpSession session){
+        session.setAttribute("user",null);
+        ModelAndView modelAndView = new ModelAndView("redirect:login");
+        return modelAndView;
+    }
 
 
 }

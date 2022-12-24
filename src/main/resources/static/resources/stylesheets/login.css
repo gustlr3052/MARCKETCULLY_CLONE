@@ -1,6 +1,5 @@
 .main-login{
     min-width: 1050px;
-    background-color: pink;
     margin-top: 90px;
     margin-bottom: 60px;
 }
@@ -55,11 +54,13 @@
 }
 .button-common{
     margin-top: 28px;
-    background-color: yellow;
+
 }
-.button-common button:last-of-type{
+.button-common input:last-of-type{
     margin-top: 10px;
 }
+
+
 
 .loginButton{
     display: block;
@@ -72,6 +73,7 @@
     color: rgb(255,255,255);
     background-color: rgb(95,0,128);
     border: 1px solid rgb(95,0,128);
+    cursor: pointer;
 }
 
 .registerButton{
@@ -85,13 +87,15 @@
     color: rgb(95,0,128);
     background-color: rgb(255,255,255);
     border: 1px solid rgb(95,0,128);
+    cursor: pointer;
 }
 
-.button-common span{
+.button-common input{
     display: inline-block;
     font-size: 16px;
     font-weight: 500;
 }
+
 
 
 
