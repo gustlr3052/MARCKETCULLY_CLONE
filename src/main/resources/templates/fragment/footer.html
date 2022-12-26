@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/footer.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
+</head>
+<body>
+<footer class="footer" id="footer" th:fragment="footer">
+    <div class="footer-Container">
+        <div class="notice-Container">
+            <h2>마켓컬리 클론코딩</h2>
+            <a class="content">마켓컬리 클론코딩 페이지 입니다. </a>
+        </div>
+        <div class="footer-menu-container">
+            <ul class="footer-menu">
+                <li>
+                    <a href="/bbs/notice">공지사항</a>
+                </li>
+                <li>
+                    <a href="/member/register">회원가입</a>
+                </li>
+                <li>
+                    <a href="/member/login">로그인</a>
+                </li>
+                <li>
+                    <a href="/member/logout">로그아웃</a>
+                </li>
+            </ul>
+
+            <span class="warning">
+                "해당 사이트는 개발자 포트폴리오 공부용으로 만들어진 웹사이트이며 실제 기능이 작동하지 않습니다."
+                <br>
+                "또한 마켓컬리 (kurly.com) 사이트를 오마주했음을 밝힘과 동시에 그 어떤 저작물의 권리를 주장하지 않습니다."
+            </span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

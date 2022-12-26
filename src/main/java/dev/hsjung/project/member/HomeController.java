@@ -27,4 +27,6 @@ public class HomeController {
         ModelAndView modelAndView = new ModelAndView("main/main");
         return modelAndView;
     }
+
+
 }

@@ -14,6 +14,7 @@
     <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
     <link rel="stylesheet" th:href="@{/resources/stylesheets/main.css}">
     <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/footer.css}">
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!--카카오 지 도 사용하기위한 script-->
     <script defer th:src="@{/resources/scripts/register.js}"></script>
     <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
@@ -21,40 +22,7 @@
     <title>회원가입</title>
 </head>
 <body>
-    <div class="topNav">
-        <div>빈공간</div>
-        <div class="topNav-Nav">
-            <div class="Nav-member" id="member">
-                <a class="Nav-sign-up " href="#">회원가입</a>
-                <div class="null"></div>
-                <a class="Nav-login" href="#">로그인</a>
-                <div class="null"></div>
-                <a class="Nav-client" href="#">고객센터</a>
-            </div>
-            <div class="Nav-image" id="image">
-                <img src="/resources/images/marketkurly.png" alt="메인로고임">
-            </div>
-            <div class="Nav-header" id="header">
-                <div class="header-head">
-                    <ul>
-                        <li>
-                            <span class="category">신상품</span>
-                        </li>
-                        <li>
-                            <span class="category">베스트</span>
-                        </li>
-                        <li>
-                            <span class="category">알뜰쇼핑</span>
-                        </li>
-                        <li>
-                            <span class="category">특가/혜택</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <th:block th:replace="~{fragment/topNav}"></th:block>
 
     <div class="main-register">
         <form class="form" id="form">
@@ -378,5 +346,7 @@
         </div>
         </form>
     </div>
+
+<th:block th:replace="~{fragment/footer :: footer}"></th:block>
 </body>
 </html>

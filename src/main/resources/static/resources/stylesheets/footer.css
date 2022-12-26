@@ -4,6 +4,42 @@
     display: flex;
 
     justify-content:center ;
-    
-    background-color: yellow;
+    background-color: rgba(95,0,128,4%);
 }
+
+.footer-Container{
+    width: 100%;
+    max-width: 75.125rem;
+    font-size: 0.925rem;
+    margin-top: 1rem;
+    padding: 1rem;
+
+}
+
+.notice-Container{
+
+    border-bottom: 0.0625rem solid rgba(95,0,128,10%);
+    padding-bottom: 1rem;
+    color: rgba(95,0,128,85%);
+
+}
+.footer-menu-container > .footer-menu{
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 1.5rem 0 2.3rem 0;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(95,0,128,85%);
+}
+.footer-menu-container > .footer-menu li{
+    margin-right: 1.2rem;
+}
+.warning{
+    color: rgba(95,9,128,65%);
+    font-size: 0.8rem;
+    letter-spacing: 0.001rem;
+}
+
+

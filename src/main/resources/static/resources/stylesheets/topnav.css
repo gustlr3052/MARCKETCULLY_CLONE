@@ -1,5 +1,5 @@
 .topNav{
-    background-color: green;
+
 }
 .topNav > .topNav-Nav{
     position: relative;
@@ -13,7 +13,7 @@
     -webkit-box-align: center;
     right: 5rem;
     top: 0;
-    background-color: hotpink;
+
 }
 .Nav-member>.Nav-sign-up{
     display: block;
@@ -36,7 +36,7 @@
 }
 
 .topNav > .topNav-Nav > .Nav-image{
-    background-color: yellow;
+
     display: flex;
     flex-direction:row;
     justify-content: center;
@@ -46,20 +46,26 @@
     display:block;
     min-width: 1050px;
     position: relative;
-    background-color: aquamarine;
+
     font-size: 1.5rem;
     user-select: none;
+    box-shadow: rgb(0 0 0 /7%) 0px 3px 4px 0px;
+    width: 100%;
+
 }
 .topNav >.topNav-Nav >.Nav-header >.header-head{
-
+    width: 1050px;
+    height: 56px;
     display: flex;
     user-select: none;
     position: relative;
     justify-content: center;
+    margin: 0px auto;
+
 
 }
 .topNav > .topNav-Nav > .Nav-header ul {
-    background-color: wheat;
+
     display: flex;
 
     justify-content: space-between;
@@ -76,5 +82,5 @@
     line-height: 20px;
     text-align: center;
     width: 150px;
-    background-color: yellow;
+
 }

@@ -12,6 +12,8 @@
   <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
   <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
   <link rel="stylesheet" th:href="@{/resources/stylesheets/login.css}">
+  <link rel="stylesheet" th:href="@{/resources/stylesheets/footer.css}">
+
 
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!--카카오 지 도 사용하기위한 script-->
 
@@ -51,5 +53,6 @@
     </form>
   </div>
 </div>
+<th:block th:replace="~{fragment/footer :: footer}"></th:block>
 </body>
 </html>
