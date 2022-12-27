@@ -10,10 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/bbs")
 public class BbsController {
 
-
-
-
-
+    // ▼ 고객센터 목록임
     @RequestMapping(value ="serviceCenter",
             method = RequestMethod.GET,
             produces = MediaType.TEXT_HTML_VALUE)
@@ -21,4 +18,15 @@ public class BbsController {
         ModelAndView modelAndView = new ModelAndView("bbs/serviceCenter");
         return modelAndView;
     }
+
+    @RequestMapping(value = "write",
+    method = RequestMethod.GET,
+    produces = MediaType.TEXT_HTML_VALUE)
+    public ModelAndView getWrite(){
+        ModelAndView modelAndView = new ModelAndView("bbs/write");
+        return modelAndView;
+    }
+
+
+
 }

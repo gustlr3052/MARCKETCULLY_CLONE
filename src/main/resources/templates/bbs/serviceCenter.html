@@ -24,7 +24,7 @@
 <th:block th:replace="~{fragment/topNav :: div}"></th:block>
 
 <div class="main">
-  <div class="container">
+  <form class="form container" id="form">
     <div class="contentLeft">
       <div class="left-header">고객센터</div>
       <ul class="left-menu-content">
@@ -73,16 +73,77 @@
           <a href="#" alt="공지사항 링크">
             <div class="right-content-content-frame">
               <div class="li-number">공지</div>
-              <div class="li-title"></div>
-              <div class="li-writer"></div>
-              <div class="li-day"></div>
+              <div class="li-title">[안내] 컬리 소비자 분쟁해결 기준 안내</div>
+              <div class="li-writer">컬리</div>
+              <div class="li-day">2022.07.07</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" alt="공지사항 링크">
+            <div class="right-content-content-frame">
+              <div class="li-number">3</div>
+              <div class="li-title">3번 게시글 입니다.</div>
+              <div class="li-writer">컬리</div>
+              <div class="li-day">2022.07.07</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" alt="공지사항 링크">
+            <div class="right-content-content-frame">
+              <div class="li-number">2</div>
+              <div class="li-title">2번 게시글 입니다.</div>
+              <div class="li-writer">컬리</div>
+              <div class="li-day">2022.07.07</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" alt="공지사항 링크">
+            <div class="right-content-content-frame">
+              <div class="li-number">1</div>
+              <div class="li-title">1번 게시글 입니다.</div>
+              <div class="li-writer">컬리</div>
+              <div class="li-day">2022.07.07</div>
             </div>
           </a>
         </li>
       </ul>
-      <div class="right-content-footer"></div>
+      <div class="page-container">
+        <a href="#" class="page">
+          <i class="fa-solid fa-angles-left"></i>
+        </a>
+        <a href="#" class="page">
+          <i class="fa-solid fa-angle-left"></i>
+        </a>
+        <a href="#" class="page">
+          <i class="fa-solid fa-angle-right"></i>
+        </a>
+        <a href="#" class="page ">
+          <i class="fa-solid fa-angles-right"></i>
+        </a>
+      </div>
+
+      <div class="search-form" id="searchForm" method="get">
+        <label class="label">
+          <span hidden>검색 기준</span>
+          <select name="criterion" class="--select-input">
+            <option value ="all">제목 + 내용</option>
+            <option value = "title">제목</option>
+            <option value = "nickname">작성자</option>
+          </select>
+        </label>
+
+        <label class="label">
+          <span hidden>검색어</span>
+          <input type="text" class="searchInput" maxlength="50" name="keyword" placeholder="검색어를 입력해주세요">
+        </label>
+        <input name="bid" type="hidden">
+        <input class="search-button" type="submit" value="검색">
+      </div>
     </div>
-  </div>
+  </form>
 
 </div>
 
