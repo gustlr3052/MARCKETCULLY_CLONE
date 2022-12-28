@@ -1,4 +1,4 @@
-package dev.hsjung.project.member;
+package dev.hsjung.project.controllers;
 
 import dev.hsjung.project.entities.member.EmailAuthEntity;
 import dev.hsjung.project.entities.member.UserEntity;
