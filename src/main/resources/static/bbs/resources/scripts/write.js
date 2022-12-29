@@ -32,7 +32,9 @@ form.onsubmit = e =>{
     xhr.onreadystatechange = () =>{
       if(xhr.readyState === XMLHttpRequest.DONE){
         if(xhr.status >= 200 && xhr.status <300) {
+            console.log("title");
             const responseObject = JSON.parse(xhr.responseText);
+            console.log(responseObject);
             switch (responseObject['result']){
                 case 'not_allowed':
                     alert('게시글을 작성할 수 있는 권한이 없거나 로그아웃 되었습니다. 확인 후 다시 시도해주세요.')

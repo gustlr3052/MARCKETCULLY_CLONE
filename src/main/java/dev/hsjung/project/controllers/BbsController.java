@@ -55,7 +55,7 @@ public class BbsController {
         if (user == null) {
             modelAndView = new ModelAndView("redirect:/member/login");
         } else {
-            BoardsEntity board = bid == null ? null : this.bbsService.getBoard(bid);
+            BoardsEntity board = this.bbsService.getBoard(bid);
             modelAndView = new ModelAndView("bbs/write");
             modelAndView.addObject("board", board);
         }

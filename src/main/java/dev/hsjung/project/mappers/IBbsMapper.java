@@ -12,4 +12,6 @@ public interface IBbsMapper {
 
     int insertArticles(ArticlesEntity article);
 
+
+
 }
