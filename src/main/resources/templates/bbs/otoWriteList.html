@@ -19,6 +19,16 @@
   <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
 
   <title>1:1 문의 목록</title>
+
+  <script th:if="${board == null}">
+    alert('존재하지 않는 게시판입니다.');
+    if(window.history.length > 1){
+      window.history.back();
+    }else{
+      window.close();
+    }
+  </script>
+
 </head>
 <body>
 <th:block th:replace="~{fragment/topNav :: div}"></th:block>

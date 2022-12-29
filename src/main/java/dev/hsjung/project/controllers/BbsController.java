@@ -10,10 +10,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -38,10 +35,14 @@ public class BbsController {
     @RequestMapping(value="otoWriteList",
     method = RequestMethod.GET,
     produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getOtoWriteList(){
+    public ModelAndView getOtoWriteList(@SessionAttribute(value = "bid")String bid){
 
         ModelAndView modelAndView = new ModelAndView("bbs/otoWriteList");
+        BoardsEntity board = this.bbsService.getBoard(bid);
+        modelAndView.addObject("board",board);
+        if(board != null){
 
+        }
         return  modelAndView;
 
     }
@@ -63,9 +64,11 @@ public class BbsController {
     }
 
 
+
     @RequestMapping(value="write",  // 글쓰기
     method = RequestMethod.POST,
     produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
     public String postWrite(@SessionAttribute(value = "user",required = false)UserEntity user,
                             @RequestParam(value = "bid",required = false)String bid,
                             ArticlesEntity article){
