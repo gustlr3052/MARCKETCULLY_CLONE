@@ -12,4 +12,15 @@
         WHERE BINARY `id` = #{id}
         LIMIT 1
     </select>
+
+    <insert id="insertArticles"
+            useGeneratedKeys="true"
+            keyColumn="index"
+            keyProperty="index"
+            parameterType="dev.hsjung.project.entities.bbs.ArticlesEntity">
+INSERT INTO  `bbs`.`articles`(`user_email`, `board_id`, `title`, `content`,`view`,`written_on`,`modified_on`)
+VALUES (#{userEmail},#{boardId},#{title},#{content},#{view},
+        IFNULL(#{writtenOn},DEFAULT(`written_on`)),
+        IFNULL(#{modifiedOn},DEFAULT(`modified_on`)))
+    </insert>       <!--PK를 제외한 나머지 값 명시해주기-->
 </mapper>

@@ -13,19 +13,18 @@
   <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
   <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
   <link rel="stylesheet" th:href="@{/resources/stylesheets/footer.css}">
-  <link rel="stylesheet" th:href="@{/bbs/resources/stylesheets/serviceCenter.css}">
+  <link rel="stylesheet" th:href="@{/bbs/resources/stylesheets/otoWriteList.css}">
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!--카카오 지 도 사용하기위한 script-->
-  <script defer th:src="@{/bbs/resources/scripts/serviceCenter.js}"></script>
+  <script defer th:src="@{/bbs/resources/scripts/otoWriteList.js}"></script>
   <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
 
-  <title>고객센터-컬리</title>
+  <title>1:1 문의 목록</title>
 </head>
 <body>
 <th:block th:replace="~{fragment/topNav :: div}"></th:block>
 
 <div class="main">
   <form class="form container" id="form">
-
     <div class="contentLeft">
       <div class="left-header">고객센터</div>
       <ul class="left-menu-content">
@@ -39,10 +38,8 @@
 
         </li>
         <li>
-
-
-          <a class="text" th:href="@{/bbs/otoWriteList}">1:1문의
-            <i class="fa-solid fa-angle-right" ></i></a>
+          <a class="text">1:1문의
+            <i class="fa-solid fa-angle-right"></i></a>
 
         </li>
         <li>
@@ -61,7 +58,7 @@
     <div class="contentRight">
       <div class="right-header">
         <div class="right-menu-header-text">
-          <h2>공지사항</h2>
+          <h2>1:1 문의</h2>
           <span>컬리의 새로운 소식들과 유용한 정보들을 한곳에서 확인하세요.</span>
         </div>
       </div>
@@ -113,6 +110,17 @@
           </a>
         </li>
       </ul>
+
+      <button class= "questionButton" id="questionButton" type="button" name="question" value="문의하기"
+      th:href="@{/bbs/write}">
+        <span>문의하기</span>
+      </button>
+
+
+
+
+
+
       <div class="page-container">
         <a href="#" class="page">
           <i class="fa-solid fa-angles-left"></i>
@@ -127,6 +135,12 @@
           <i class="fa-solid fa-angles-right"></i>
         </a>
       </div>
+
+
+
+
+
+
 
       <div class="search-form" id="searchForm" method="get">
         <label class="label">

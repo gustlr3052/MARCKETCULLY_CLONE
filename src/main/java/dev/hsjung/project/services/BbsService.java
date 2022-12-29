@@ -1,7 +1,11 @@
 package dev.hsjung.project.services;
 
 
+import dev.hsjung.project.entities.bbs.ArticlesEntity;
 import dev.hsjung.project.entities.bbs.BoardsEntity;
+import dev.hsjung.project.enums.CommonResult;
+import dev.hsjung.project.enums.WriteResult;
+import dev.hsjung.project.interfaces.IResult;
 import dev.hsjung.project.mappers.IBbsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +25,14 @@ public class BbsService {
 
     public BoardsEntity getBoard(String id){
         return this.bbsMapper.selectBoardById(id);
+    }
+
+    public  Enum<? extends IResult> write(ArticlesEntity article){
+        BoardsEntity board = this.bbsMapper.selectBoardById(article.getBoardId());
+        if(board == null){
+            return WriteResult.NO_SUCH_BOARD;
+        }
+        return this.bbsMapper.insertArticles(article) > 0 ? CommonResult.SUCCESS : CommonResult.FAILURE;
     }
 
 
