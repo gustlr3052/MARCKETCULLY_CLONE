@@ -40,7 +40,7 @@ form.onsubmit = e =>{
                     alert('게시글을 작성할 수 있는 권한이 없거나 로그아웃 되었습니다. 확인 후 다시 시도해주세요.')
                     break;
                 case 'success':
-                   window.location.href='/bbs/otoWriteList'// 아직 잘 모르겠음
+                   window.location.href='otoWriteList?bid=oto'// 아직 잘 모르겠음
                  break;
                 default:
                     alert('알 수 없는 이유로 게시글을 작성하지 못하였습니다. 잠시후 다시 시도해주세요.')

@@ -3,14 +3,14 @@ package dev.hsjung.project.vos;
 import dev.hsjung.project.entities.bbs.ArticlesEntity;
 
 public class ArticleReadVo extends ArticlesEntity {
-    private String userNickname;
+    private String userNickName;
 
-    public String getUserNickname() {
-        return userNickname;
+    public String getUserNickName() {
+        return userNickName;
     }
 
-    public ArticleReadVo setUserNickname(String userNickname) {
-        this.userNickname = userNickname;
+    public ArticleReadVo setUserNickName(String userNickName) {
+        this.userNickName = userNickName;
         return this;
     }
 }

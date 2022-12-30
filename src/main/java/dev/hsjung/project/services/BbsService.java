@@ -7,6 +7,7 @@ import dev.hsjung.project.enums.CommonResult;
 import dev.hsjung.project.enums.WriteResult;
 import dev.hsjung.project.interfaces.IResult;
 import dev.hsjung.project.mappers.IBbsMapper;
+import dev.hsjung.project.vos.ArticleReadVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
@@ -34,6 +35,12 @@ public class BbsService {
         }
         return this.bbsMapper.insertArticles(article) > 0 ? CommonResult.SUCCESS : CommonResult.FAILURE;
     }
+
+    public ArticleReadVo[] getArticles(BoardsEntity board){
+        return this.bbsMapper.selectArticlesByBoardId(board.getId());
+    }
+
+
 
 
 

@@ -26,8 +26,20 @@ VALUES (#{userEmail},#{boardId},#{title},#{content},#{view},
 
     <select id="selectArticlesByBoardId"
             resultType="dev.hsjung.project.vos.ArticleReadVo">
-        SELECT *
-        FROM bbs.articles
+        SELECT
+              `article`.`index` AS `index`,
+              `article`.`user_email` AS `userEmail`,
+              `article`.`board_id` AS `boardId`,
+              `article`.`title` AS `title`,
+              `article`.`content` AS `content`,
+              `article`.`view` AS `view`,
+              `article`.`written_on` AS `writtenOn`,
+              `article`.`modified_on` AS `modifiedOn`,
+              `user`.`nickname` AS `userNickName`
+        FROM `bbs`.`articles`   AS `article`
+        LEFT JOIN `member`.`users` AS `user` ON `article`.`user_email` = `user`.`email`
+        WHERE `article`.`board_id` = #{boardId}
+        ORDER BY `article`.`index` DESC
     </select>
 
 </mapper>

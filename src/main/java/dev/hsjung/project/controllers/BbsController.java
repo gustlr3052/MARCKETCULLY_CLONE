@@ -6,6 +6,7 @@ import dev.hsjung.project.entities.member.UserEntity;
 import dev.hsjung.project.enums.CommonResult;
 import dev.hsjung.project.enums.WriteResult;
 import dev.hsjung.project.services.BbsService;
+import dev.hsjung.project.vos.ArticleReadVo;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -35,16 +36,16 @@ public class BbsController {
     @RequestMapping(value="otoWriteList",
     method = RequestMethod.GET,
     produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView getOtoWriteList(@SessionAttribute(value = "bid")String bid){
+    public ModelAndView getOtoWriteList(@RequestParam(value = "bid")String bid){
 
         ModelAndView modelAndView = new ModelAndView("bbs/otoWriteList");
         BoardsEntity board = this.bbsService.getBoard(bid);
         modelAndView.addObject("board",board);
         if(board != null){
-
+            ArticleReadVo[] articles = this.bbsService.getArticles(board);
+            modelAndView.addObject("articles",articles);
         }
         return  modelAndView;
-
     }
     @RequestMapping(value = "write", // 로그인시 글 쓸 수 있도록 하기
     method = RequestMethod.GET,

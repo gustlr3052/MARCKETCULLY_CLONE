@@ -30,7 +30,7 @@
   </script>
 
 </head>
-<body>
+<body th:if="${board !=null}">
 <th:block th:replace="~{fragment/topNav :: div}"></th:block>
 
 <div class="main">
@@ -78,47 +78,47 @@
         <div class="writer">작성자</div>
         <div class="day">작성일</div>
       </div>
-      <ul class="right-content-content">
+      <ul class="right-content-content" th:each="article : ${articles}">
         <li>
           <a href="#" alt="공지사항 링크">
             <div class="right-content-content-frame">
-              <div class="li-number">공지</div>
-              <div class="li-title">[안내] 컬리 소비자 분쟁해결 기준 안내</div>
-              <div class="li-writer">컬리</div>
-              <div class="li-day">2022.07.07</div>
+              <div class="li-number" th:text="${article.getIndex()}">공지</div>
+              <div class="li-title" th:text="${article.getTitle()}">[안내] 컬리 소비자 분쟁해결 기준 안내</div>
+              <div class="li-writer" th:text="${article.getUserNickName()}">컬리</div>
+              <div class="li-day" th:text="${#dates.format(article.getWrittenOn(),'yyyy-MM-dd')}">2022.07.07</div>
             </div>
           </a>
         </li>
-        <li>
-          <a href="#" alt="공지사항 링크">
-            <div class="right-content-content-frame">
-              <div class="li-number">3</div>
-              <div class="li-title">3번 게시글 입니다.</div>
-              <div class="li-writer">컬리</div>
-              <div class="li-day">2022.07.07</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#" alt="공지사항 링크">
-            <div class="right-content-content-frame">
-              <div class="li-number">2</div>
-              <div class="li-title">2번 게시글 입니다.</div>
-              <div class="li-writer">컬리</div>
-              <div class="li-day">2022.07.07</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#" alt="공지사항 링크">
-            <div class="right-content-content-frame">
-              <div class="li-number">1</div>
-              <div class="li-title">1번 게시글 입니다.</div>
-              <div class="li-writer">컬리</div>
-              <div class="li-day">2022.07.07</div>
-            </div>
-          </a>
-        </li>
+<!--        <li>-->
+<!--          <a href="#" alt="공지사항 링크">-->
+<!--            <div class="right-content-content-frame">-->
+<!--              <div class="li-number">3</div>-->
+<!--              <div class="li-title">3번 게시글 입니다.</div>-->
+<!--              <div class="li-writer">컬리</div>-->
+<!--              <div class="li-day">2022.07.07</div>-->
+<!--            </div>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="#" alt="공지사항 링크">-->
+<!--            <div class="right-content-content-frame">-->
+<!--              <div class="li-number">2</div>-->
+<!--              <div class="li-title">2번 게시글 입니다.</div>-->
+<!--              <div class="li-writer">컬리</div>-->
+<!--              <div class="li-day">2022.07.07</div>-->
+<!--            </div>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <a href="#" alt="공지사항 링크">-->
+<!--            <div class="right-content-content-frame">-->
+<!--              <div class="li-number">1</div>-->
+<!--              <div class="li-title">1번 게시글 입니다.</div>-->
+<!--              <div class="li-writer">컬리</div>-->
+<!--              <div class="li-day">2022.07.07</div>-->
+<!--            </div>-->
+<!--          </a>-->
+<!--        </li>-->
       </ul>
 
       <!--/*@thymesVar id="board" type="dev.hsjung.project.entities.bbs.BoardsEntity"*/-->
