@@ -16,7 +16,7 @@
   <link rel="stylesheet" th:href="@{/bbs/resources/stylesheets/write.css}">
   <link rel="stylesheet" th:href="@{/bbs/resources/stylesheets/sideMenu.css}">
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!--카카오 지 도 사용하기위한 script-->
-  <script defer th:src="@{/bbs/resources/scripts/write.js}"></script>
+  <script defer th:src="@{/bbs/resources/scripts/modify.js}"></script>
   <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
 
   <title>1:1문의</title>
@@ -67,21 +67,21 @@
 
       <div class="right-content-frame">
         <form class="form" id="form">
-            <input name="bid" type="hidden" th:value="${board.getId()}">
 
-            <div class="content-title-frame">
 
-              <div class="content-title">
-                  제목<span class="star">*</span>
-              </div>
-              <div class="content-title-text">
-                <div class="content-title-textFrame">
-                  <div class="--input-frame">
-                    <input class="input" type="text" placeholder="제목을 입력해주세요" name="title">
-                  </div>
+          <div class="content-title-frame">
+
+            <div class="content-title">
+              제목<span class="star">*</span>
+            </div>
+            <div class="content-title-text">
+              <div class="content-title-textFrame">
+                <div class="--input-frame">
+                  <input class="input" type="text" placeholder="제목을 입력해주세요" name="title">
                 </div>
               </div>
             </div>
+          </div>
           <div class="content-title-frame">
             <div class="content-title">
               내용<span class="star">*</span>
@@ -96,8 +96,6 @@
           </div>
         </form>
       </div>
-
-
 
 
     </div>

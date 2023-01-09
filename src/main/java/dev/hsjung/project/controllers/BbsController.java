@@ -47,6 +47,11 @@ public class BbsController {
         }
         return  modelAndView;
     }
+
+
+
+
+
     @RequestMapping(value = "write", // 로그인시 글 쓸 수 있도록 하기
     method = RequestMethod.GET,
     produces = MediaType.TEXT_HTML_VALUE)
@@ -94,8 +99,57 @@ public class BbsController {
         return responseObject.toString();
     }
 
+    @RequestMapping(value = "modify", // 수정주소 보이기 : aid값에 index 연동시켜서 불러오기
+    method = RequestMethod.GET,
+    produces = MediaType.TEXT_HTML_VALUE)
+    public ModelAndView getModify(@SessionAttribute(value = "user",required = false)UserEntity user,
+                                  @RequestParam(value = "aid",required = false)int aid) {
+
+        ArticlesEntity article = new ArticlesEntity();
+        article.setIndex(aid);
+        Enum<?> result = this.bbsService.prepareModifyArticle(article,user);
+        ModelAndView modelAndView = new ModelAndView("bbs/modify");
+        modelAndView.addObject("article",article);
+        modelAndView.addObject("result",result.name());
+        if(result == CommonResult.SUCCESS){
+            modelAndView.addObject("board",this.bbsService.getBoard(article.getBoardId()));
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "modify", // 실제 수정 값 넣기
+    method = RequestMethod.PATCH,
+    produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String patchModify(@SessionAttribute(value = "user",required = false)UserEntity user,
+                              @RequestParam(value="aid",required = false)int aid,
+                              ArticlesEntity article)
+    {
+        article.setIndex(aid);
+        Enum<?>result = bbsService.modifyArticle(article,user);
+        JSONObject responseObject = new JSONObject();
+        responseObject.put("result",result.name().toLowerCase());
+        if(result == CommonResult.SUCCESS){
+            responseObject.put("aid",aid);
+        }
+        return responseObject.toString();
+    }
+    @RequestMapping(value = "otoWriteList",
+            method = RequestMethod.DELETE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String deleteOtoWriteList(@SessionAttribute(value = "user",required = false)UserEntity user, ArticlesEntity article){
 
 
+        Enum<?> result = this.bbsService.deleteArticle(article,user);
+        JSONObject responseObject= new JSONObject();
+        responseObject.put("result",result.name().toLowerCase());
+        if(result == CommonResult.SUCCESS){
+//            responseObject.put("bid",article.getBoardId());
+            System.out.println("삭제 성공했습니다.");
+        }
 
+        return responseObject.toString();
 
+    }
 }

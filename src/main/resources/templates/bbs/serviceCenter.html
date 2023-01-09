@@ -13,6 +13,7 @@
   <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
   <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
   <link rel="stylesheet" th:href="@{/resources/stylesheets/footer.css}">
+  <link rel="stylesheet" th:href="@{/bbs/resources/stylesheets/sideMenu.css}">
   <link rel="stylesheet" th:href="@{/bbs/resources/stylesheets/serviceCenter.css}">
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!--카카오 지 도 사용하기위한 script-->
   <script defer th:src="@{/bbs/resources/scripts/serviceCenter.js}"></script>
@@ -26,25 +27,25 @@
 <div class="main">
   <form class="form container" id="form">
 
-    <div class="contentLeft">
+    <div class="contentLeft" th:fragment="sideMenu">
       <div class="left-header">고객센터</div>
       <ul class="left-menu-content">
         <li>
-          <a class="text">공지사항
+          <a class="text" id="notice">공지사항
             <i class="fa-solid fa-angle-right"></i></a>
         </li>
         <li>
-          <a class="text">자주하는 질문
+          <a class="text" id="faq">자주하는 질문
             <i class="fa-solid fa-angle-right"></i></a>
 
         </li>
         <li>
-          <a class="text" th:href="@{/bbs/otoWriteList}">1:1문의
+          <a class="text" id="oto" th:href="@{/bbs/otoWriteList (bid='oto')}">1:1문의
             <i class="fa-solid fa-angle-right" ></i></a>
 
         </li>
         <li>
-          <a class="text">대량주문 문의
+          <a class="text" id="boi">대량주문 문의
             <i class="fa-solid fa-angle-right"></i></a>
         </li>
       </ul>

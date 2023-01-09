@@ -42,4 +42,41 @@ VALUES (#{userEmail},#{boardId},#{title},#{content},#{view},
         ORDER BY `article`.`index` DESC
     </select>
 
+    <select id="selectArticleByIndex"
+            resultType="dev.hsjung.project.vos.ArticleReadVo">
+        SELECT
+              `article`.`index`              AS `index`,
+              `article`.`user_email`         AS `userEmail`,
+              `article`.`board_id`           AS `boardId`,
+              `article`.`title`              AS `title`,
+              `article`.`content`            AS `content`,
+              `article`.`view`               AS `view`,
+              `article`.`written_on`         AS `writtenOn`,
+              `article`.`modified_on`        AS `modifiedOn`
+        FROM `bbs`.`articles`       AS `article`
+            LEFT JOIN `member`.`users` AS `users` ON `article`.`user_email` = `users`.`email`
+        WHERE BINARY `article`.`index` = #{index}
+        LIMIT 1
+    </select>
+    <update id="updateArticle"
+            parameterType="dev.hsjung.project.entities.bbs.ArticlesEntity">
+        UPDATE `bbs`.`articles`
+        SET
+            `index`         =#{index},
+            `user_email`    =#{userEmail},
+            `board_id`      =#{boardId},
+            `title`         =#{title},
+            `content`       =#{content},
+            `view`          =#{view},
+            `written_on`    =#{writtenOn},
+            `modified_on`   =#{modifiedOn}
+        WHERE `index` = #{index}
+        LIMIT 1
+    </update>
+
+    <delete id="deleteArticleByIndex">
+        DELETE FROM `bbs`.`articles` WHERE `index` = #{index} LIMIT 1
+    </delete>
+
+
 </mapper>

@@ -13,7 +13,12 @@ public interface IBbsMapper {
 
     int insertArticles(ArticlesEntity article);
 
-    ArticleReadVo[] selectArticlesByBoardId(@Param(value="boardId")String boardId);
+    ArticleReadVo[] selectArticlesByBoardId(@Param(value="boardId")String boardId); //게시판에 게시글 넣기
+
+    ArticleReadVo selectArticleByIndex(@Param(value="index")int index); // 게시글 수정하기
+    int updateArticle(ArticlesEntity article);
+
+    int deleteArticleByIndex(@Param(value = "index") int index);
 
 
 }
