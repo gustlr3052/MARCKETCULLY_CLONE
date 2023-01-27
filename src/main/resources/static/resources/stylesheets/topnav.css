@@ -23,7 +23,7 @@
 .null{
     width: 1px;
     height: 13px;
-    margin: 0px 12px;
+    margin: 0 12px;
     background-color: rgb(217,217,217);
 }
 .Nav-member >.Nav-login{
@@ -82,5 +82,12 @@
     line-height: 20px;
     text-align: center;
     width: 150px;
-
 }
+
+.cart-image{
+    float: right;
+    padding-left: 12rem;
+    right: 0;
+    cursor: pointer;
+}
+

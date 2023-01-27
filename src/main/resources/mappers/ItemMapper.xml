@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dev.hsjung.project.mappers.IItemMapper">
+
+    <select id="selectItems"
+            resultType="dev.hsjung.project.entities.purchase.ItemEntity">
+        SELECT
+            `index`                  AS `index`,
+            `name`                   AS `name`,
+            `price`                  AS `price`,
+            `ship_type`              AS `shipType`,
+            `seller`                 AS `seller`,
+            `pack_type`              AS `packType`,
+            `sales_unit`             AS `salesUnit`,
+            `weight`                 AS `weight`,
+            `allergy_information`    AS `allergyInformation`,
+            `image`                  AS `image`,
+            `image_type`             AS `imageType`,
+            `count`                  AS `count`
+        FROM `purchase`.`items`
+        </select>
+    
+    <select id="selectItemByIndex"
+            resultType="dev.hsjung.project.entities.purchase.ItemEntity">
+        SELECT
+               `index`                  AS `index`,
+               `name`                   AS `name`,
+               `price`                  AS `price`,
+               `ship_type`              AS `shipType`,
+               `seller`                 AS `seller`,
+               `pack_type`              AS `packType`,
+               `sales_unit`             AS `salesUnit`,
+               `weight`                 AS `weight`,
+               `allergy_information`    AS `allergyInformation`,
+               `image`                  AS `image`,
+               `image_type`             AS `imageType`,
+               `count`                  AS `count`
+
+        FROM `purchase`.`items`
+        WHERE BINARY `index` = #{index}
+        LIMIT 1
+    </select>
+    
+    <insert id="insertCartList"
+            useGeneratedKeys="true"
+            keyColumn="index"
+            keyProperty="index"
+            parameterType="dev.hsjung.project.entities.purchase.CartListEntity">
+INSERT INTO `purchase`.`cart_list`(`item_index`,`user_index`,`item_name`,`final_count`,`final_price`)
+VALUES (#{itemIndex},#{userIndex},#{itemName},#{finalCount},#{finalPrice})
+    </insert>
+
+    <select id="selectCartList"
+            resultType="dev.hsjung.project.entities.purchase.CartListEntity">
+        SELECT
+            `cart`.`index` AS `index`,
+            `cart`.`item_index` AS `itemIndex`,
+            `cart`.`user_index` AS `userIndex`,
+            `cart`.`item_name` AS `itemName`,
+            `cart`.`final_count` AS `finalCount`,
+            `cart`.`final_price` AS `finalPrice`
+        FROM `purchase`.`cart_list` AS `cart`
+            LEFT JOIN `purchase`.`items` AS `items` ON `cart`.`item_index` = `items`.`index`
+        WHERE BINARY `cart`.`user_index` = #{userIndex}
+        ORDER BY `cart`.`index` DESC
+    </select>
+
+    <select id="selectCartListItem"
+            resultType="dev.hsjung.project.vos.CartListVo">
+        SELECT
+            `cart`.`index` AS `index`,
+            `cart`.`item_index` AS `itemIndex`,
+            `cart`.`user_index` AS `userIndex`,
+            `cart`.`item_name` AS `itemName`,
+            `cart`.`final_count` AS `finalCount`,
+            `cart`.`final_price` AS `finalPrice`,
+            `items`.`price` AS `unitPrice`,
+            `items`.`image` AS `itemImage`,
+            `items`.`image_type` AS `itemImageType`
+        FROM `purchase`.`cart_list` AS `cart`
+        LEFT JOIN `purchase`.`items` AS `items` ON `cart`.`item_index` = `items`.`index`
+        WHERE BINARY `cart`.`user_index` = #{userIndex}
+        ORDER BY `cart`.`index` DESC
+    </select>
+
+    <delete id="deleteCartListItemByIndex">
+        DELETE FROM `purchase`.`cart_list` WHERE `index` =#{index} LIMIT 1
+    </delete>
+
+    <select id="selectCartListByIndex"
+    resultType="dev.hsjung.project.vos.CartListVo">
+        SELECT
+            `cart`.`index` AS `index`,
+            `cart`.`item_index` AS `itemIndex`,
+            `cart`.`user_index` AS `userIndex`,
+            `cart`.`item_name` AS `itemName`,
+            `cart`.`final_count` AS `finalCount`,
+            `cart`.`final_price` AS `finalPrice`
+        FROM `purchase`.`cart_list` AS `cart`
+        LEFT JOIN `purchase`.`items` AS `items` ON `cart`.`item_index` = `items`.`index`
+        WHERE `cart`.`index`
+        IN
+        <foreach collection="index" item="arr" open="(" close=")" separator=",">
+            #{arr}
+        </foreach>
+    </select>
+
+<!--    <select id ="selectCartList"-->
+<!--    resultType="dev.hsjung.project.vos.CartListVo">-->
+<!--        SELECT-->
+<!--            `cart`.`index` AS `index`,-->
+<!--            `cart`.`item_index` AS `itemIndex`,-->
+<!--            `cart`.`user_index` AS `userIndex`,-->
+<!--            `cart`.`item_name` AS `itemName`,-->
+<!--            `cart`.`final_count` AS `finalCount`,-->
+<!--            `cart`.`final_price` AS `finalPrice`-->
+<!--            FROM `purchase`.`cart_list` AS `cart`-->
+<!--            LEFT JOIN `purchase`.`items` AS `items` ON `cart`.`item_index` = `items`.`index`-->
+<!--    </select>-->
+
+<!--    <delete id="deleteCartListItem">-->
+<!--        DELETE FROM `purchase`.`cart_list` where `index` = #{index}-->
+<!--    </delete>-->
+
+    <update id="updateCartList"
+            parameterType="dev.hsjung.project.entities.purchase.CartListEntity">
+        UPDATE `purchase`.`cart_list`
+        SET
+            `index` = #{index},
+            `item_index` = #{itemIndex},
+            `user_index` = #{userIndex},
+            `item_name` = #{itemName},
+            `final_count` = #{finalCount},
+            `final_price` = #{finalPrice}
+        WHERE `index` = #{index}
+        LIMIT 1
+    </update>
+
+    <insert id="insertOrderList"
+            useGeneratedKeys="true"
+            keyColumn="index"
+            keyProperty="index"
+            parameterType="dev.hsjung.project.entities.purchase.OrderListEntity">
+        INSERT INTO `purchase`.`orders`(`user_index`,`item_index`,`cartList_index`,`final_price`,`final_count`,`item_name`)
+VALUES (#{userIndex},#{itemIndex},#{cartListIndex},#{finalPrice},#{finalCount},#{itemName})
+    </insert>
+
+    <select id="selectOrderListItem" resultType="dev.hsjung.project.entities.purchase.OrderListEntity">
+        SELECT
+               `order`. `index` AS `index`,
+               `order`.`user_index` AS `userIndex`,
+               `order`.`item_index` AS `itemIndex`,
+               `order`.`cartList_index` AS `cartListIndex`,
+               `order`.`final_price` AS `finalPrice`,
+               `order`.`final_count` AS `finalCount`,
+               `order`.`item_name` AS `itemName`
+        FROM `purchase`.`orders` AS `order`
+                 LEFT JOIN `member`.`users` AS `user` ON `order`.`user_index` = `user`.`index`
+        LEFT JOIN `purchase`.`items` AS `item` ON `order`.`item_index` = `item`.`index`
+        WHERE BINARY `order`.`user_index` = #{userIndex}
+        ORDER BY `order`.`index` DESC
+    </select>
+
+
+
+</mapper>

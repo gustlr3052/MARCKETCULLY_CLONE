@@ -3,6 +3,23 @@
 
 <mapper namespace="dev.hsjung.project.mappers.IMemberMapper">
 
+    <select id="selectUsers"
+            resultType="dev.hsjung.project.entities.member.UserEntity">
+        SELECT
+               `index` AS `index`,
+               `email` AS `email`,
+               `password` AS `password`,
+               `nickname` AS `nickname`,
+               `name` AS `name`,
+               `contact` AS `contact`,
+               `address_postal` AS `addressPostal`,
+               `address_primary` AS `addressPrimary`,
+               `address_secondary` AS `addressSecondary`,
+               `registered_on` AS `registeredOn`
+        FROM `member`.`users`
+WHERE BINARY `email` = #{email} AND `index` = #{index}
+    </select>
+
     <select id="selectUserByEmail"
             resultType="dev.hsjung.project.entities.member.UserEntity">
         SELECT
@@ -68,6 +85,9 @@
     INSERT INTO `member`.`users`(`email`, `password`, `nickname`, `name`, `contact`, `address_postal`, `address_primary`, `address_secondary`)
     VALUES (#{email},#{password},#{nickname},#{name},#{contact},#{addressPostal},#{addressPrimary},#{addressSecondary}) -- registeredOn은 현재시간이므로 있으면 안되죠~
     </insert>
+
+
+
 
 
 

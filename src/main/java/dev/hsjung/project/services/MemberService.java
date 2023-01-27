@@ -140,6 +140,14 @@ public class MemberService {
         if(!user.getPassword().equals(existingUser.getPassword())){
             return CommonResult.FAILURE;
         }
+        user.setIndex(existingUser.getIndex());
+        user.setName(existingUser.getName());
+        user.setContact(existingUser.getContact());
+        user.setAddressPrimary(existingUser.getAddressPrimary());
+        user.setAddressSecondary(existingUser.getAddressSecondary());
+
+
+
         return CommonResult.SUCCESS;
     }
 

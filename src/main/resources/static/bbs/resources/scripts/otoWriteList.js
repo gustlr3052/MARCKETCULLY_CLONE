@@ -41,13 +41,12 @@ for (let deleteButton of deleteButtons) {
                console.log('여기까진 통과하나?');
                switch (responseObject['result']){
                   case 'success':
-
                      window.location.href='otoWriteList?bid=oto';
-                      console.log(responseObject);
+
                      alert('성공');
                      break;
                   case 'failure':
-                     console.log(responseObject);
+
                      alert('실패');
                      break;
                   default:

@@ -15,6 +15,9 @@ public interface IMemberMapper {
                                                    @Param(value = "code")String code,
                                                    @Param(value = "salt")String salt); //email,code,salt 값 가져오기
 
+    UserEntity selectUsers(@Param(value = "email")String email,
+                           @Param(value = "index")int index);
+
     int insertEmailAuth(EmailAuthEntity emailAuth);
 
     int updateEmailAuth(EmailAuthEntity emailAuth);

@@ -1,0 +1,303 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Rampart+One&display=swap');
+
+
+
+.main{
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+}
+
+.main > .goods-frame {
+    width: 1050px;
+    margin: 0 auto;
+    padding-top: 30px;
+    position: relative;
+
+}
+
+.goods{
+    display: flex;
+    justify-content: space-between;
+}
+.goods > .goods-left{
+    width: 430px;
+    height: 552px;
+}
+
+
+section{
+    width: 560px;
+
+}
+.goods-right > .topText{
+    font-weight: 500;
+    line-height: 1.36;
+    letter-spacing: -0.5px;
+
+    margin-bottom: 6px;
+    width: 500px;
+}
+.goods-right > .goods-name-frame{
+    display: flex;
+    flex-direction: column;
+}
+.goods-right > .goods-name-frame > .goods-name{
+    display: flex;
+    flex: 1 1 0;
+    justify-content: space-between;
+
+}
+.item-name{
+    width: 500px;
+    font-weight: 500;
+    font-size: 24px;
+    color: rgb(51,51,51);
+    line-height: 34px;
+    letter-spacing: -0.5px;
+    word-break: keep-all;
+    margin-right: 20px;
+}
+.item-price-frame{
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    padding-top: 19px;
+    font-weight: bold;
+    line-height: 30px;
+    letter-spacing: -0.5px;
+
+}
+.item-price-frame > .discount{
+    padding-right: 9px;
+    font-size: 28px;
+    color: #fa622f;
+}
+.item-price-frame > .price{
+    padding-right: 4px;
+    font-size: 28px;
+    color: #333;
+}
+.item-price-frame > .won{
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    font-size: 18px;
+    color: #333;
+    vertical-align: top;
+}
+section > .item-information-frame{
+    background-color: #fa622f;
+    margin-top: 20px;
+}
+
+.dl-common{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow: hidden;
+    width: 100%;
+    padding: 17px 0  18px;
+    border-top: 1px solid #f4f4f4;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    background-color: white;
+}
+.dt-common{
+    color: #666;
+    font-weight: 400;
+    width: 128px;
+    height: 100%;
+    line-height: 19px;
+
+}
+.dl-common > .dd-common{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+}
+.dl-common > .dd-common > .description{
+    font-weight: 400;
+    color: #333;
+    line-height: 19px;
+    white-space: pre-line;
+    word-break: break-all;
+    overflow: hidden;
+}
+.dl-common > .dd-common > .shipType-description{
+    display: block;
+    font-size: 12px;
+    color: #666;
+    padding-top: 4px;
+    line-height: 16px;
+    white-space: pre-line;
+}
+
+.goods-right > .item-buy-frame{
+    padding-bottom: 40px;
+}
+
+
+.select-item{
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+}
+.cart-option-item:last-of-type{
+    border-bottom: 1px solid rgb(244,244,244);
+}
+.cart-option-item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:11px 10px 11px 15px;
+    font-size: 12px;
+    border-left: 1px solid rgb(244,244,244);
+    border-top: 1px solid rgb(244,244,244);
+    border-right: 1px solid rgb(244,244,244);
+}
+
+.select-item-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.select-item-name > .last-item-name{
+    line-height: 16px;
+    width: 320px;
+    color: rgb(51,51,51);
+}
+.select-item-count{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+
+}
+.button-frame{
+    background-color: #f2f2f2;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid rgb(221,223,225);
+    width: 88px;
+    border-radius: 3px;
+}
+
+
+.button-count-price{
+    background-color: #5f0080;
+}
+
+.minusButton{
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border: none;
+    font-size: 1px;
+    color: black;
+    background-size: cover;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0yMCAxNHYySDEwdi0yeiIgZmlsbD0iIzMzMyIgZmlsbC1ydWxlPSJub256ZXJvIi8+Cjwvc3ZnPgo=") ;
+    vertical-align: top;
+}
+
+
+.plusButton{
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border: none;
+    font-size: 1px;
+    color: transparent;
+    background-size: cover;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xNiAxMHY0aDR2MmgtNHY0aC0ydi00aC00di0yaDR2LTRoMnoiIGZpbGw9IiMzMzMiIGZpbGwtcnVsZT0ibm9uemVybyIvPgo8L3N2Zz4K") ;
+    vertical-align: top;
+}
+
+.moveCount{
+    display: inline-flex;
+    overflow: hidden;
+    white-space: nowrap;
+    justify-content: center;
+    color: rgb(51,51,51);
+    text-align: center;
+    width: 31px;
+    height: 28px;
+    line-height: 28px;
+}
+
+.unit-price{
+    font-weight: bold;
+    font-size: 12px;
+    color: rgb(51,51,51);
+    padding-right: 5px;
+}
+
+.totalCount-frame{
+    padding-top: 30px;
+}
+.totalPrice{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.totalPrice-text{
+    padding-right: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(51,51,51);
+    line-height: 20px;
+}
+.totalPrice-price{
+    font-weight: bold;
+    font-size: 32px;
+    color: rgb(51,51,51);
+    line-height: 36px;
+}
+
+.totalPrice-won{
+    padding-left: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(51,51,51);
+    line-height: 30px;
+}
+.go-cart-list-frame{
+    margin-top: 20px;
+}
+.cartButton{
+    display: block;
+    padding: 0 10px;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    height: 52px;
+    border-radius: 3px;
+    background-color: rgb(95,0,128);
+    border: 0 none;
+    color: rgb(255,255,255);
+}
+.cartButton-text{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

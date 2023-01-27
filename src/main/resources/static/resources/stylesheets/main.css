@@ -22,7 +22,8 @@
   max-width: 1900px;
   margin: auto 40px;
 }
-.main >.main_banners > .banner_sub > .swiper-pointer-events{
+
+.swiper-pointer-events{
   touch-action: pan-y;
 }
 .main >.main_banners > .banner_sub > .swiper{
@@ -35,7 +36,6 @@
 }
 .main >.main_banners > .banner_sub >.swiper-wrapper{
   position:relative;
-
   width: 100%;
   height: 100%;
   display: flex;
@@ -77,9 +77,8 @@
 
 
 .main > .main_content > .main_content-sub > .sectionItems {
-
   position: relative;
-  margin: 0px auto;
+  margin: 0 auto;
   width: 1050px;
 }
 
@@ -90,7 +89,7 @@
 .swiper-pointer-events{
   touch-action: pan-y;
 }
- .swiper{
+.swiper{
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -105,15 +104,18 @@
   height: 100%;
   z-index: 1;
   display: flex;
-  transition-property: transform;
+  transition-duration: 300ms;
   box-sizing: content-box;
 }
-.swiper-slide{
+.swiper-slide,
+.swiper-slide2{
   flex-shrink: 0;
   width: 100%;
   height: 100%;
   position: relative;
   transition-property: transform;
+  margin-right: 18px;
+
 }
 .goods{
   display: block;
@@ -183,7 +185,7 @@ a{
 
 .content-row .product-price{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .goods .product-info .product-price .sales-price{
   font-size: 16px;
@@ -204,10 +206,20 @@ a{
   text-decoration: line-through;
   margin-top: 2px;
 }
+.won{
+  font-size: 16px;
+  margin-left: 3px;
+}
 
-
+.leftButton.visible{
+  display: block;
+}
+.rightButton.visible{
+  display: block;
+}
 
 .leftButton{
+  display: none;
   position: absolute;
   z-index: 100;
   border: 0px;
@@ -220,7 +232,9 @@ a{
   left: 0;
   transform: translate(-50%,-50%);
 }
+
 .rightButton{
+  display: none;
   position: absolute;
   z-index: 100;
   border: 0px;

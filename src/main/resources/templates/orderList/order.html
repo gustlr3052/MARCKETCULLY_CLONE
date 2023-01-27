@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/6109b4bf33.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+
+    <script defer th:src="@{/main/resources/scripts/order.js}"></script>
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/order.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/footer.css}">
+
+    <title>주문확인서</title>
+
+</head>
+<body>
+<th:block th:replace="~{fragment/topNav :: div}"></th:block>
+<form class="form" id=form>
+<div class="main-frame">
+    <div class="main-frame-sub">
+        <h2 class="headerText">주문서</h2>
+        <div class="list">
+            <div class="orderList-frame">
+                <h3 class="orderList-headerText">주문상품</h3>
+            </div>
+            <div class="itemList" th:each="order : ${orders}">
+                <span class="item-image"><img th:src="@{./goodImage (gi=${order.getItemIndex()})}"></span>
+                <span class="item-name">
+                    <span class="nameText" th:text="${order.getItemName()}"></span>
+                </span>
+                <span class="item-count">
+                    <span class="count-text" th:text="${order.getFinalCount()}">3</span><span>개</span>
+                </span>
+                <span class="item-price">
+                    <span class="price-text" th:text="${order.getFinalPrice()}">6,000<span>원</span></span>
+                </span>
+            </div>
+
+            <div class="order-information-frame">
+                <h3 class="information-text">주문자 정보</h3>
+            </div>
+            <div class="order-information-user">
+                <div class="common">
+                    <span class="sendUser common2">받는 분</span>
+                    <div class="userName-frame common3">
+                        <div class="userName common4" th:text="${session.user.getName()}"></div>
+                    </div>
+                </div>
+                <div class="common">
+                    <span class="phoneHeader common2">휴대폰</span>
+                    <div class="userName-frame common3">
+                        <div class="userPhone common4" th:text="${session.user.getContact()}"></div>
+                    </div>
+                </div>
+                <div class="common">
+                    <span class="mailHeader common2">이메일</span>
+                    <div class="userName-frame common3">
+                        <div class="userEmail common4" th:text="${session.user.getEmail()}"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-information-frame">
+                <h3 class="information-text">배송 정보</h3>
+            </div>
+            <div class="order-information-user">
+                <div class="common">
+                    <span class="sendUser common2">배송지</span>
+                    <div class="common3">
+                        <div class="addressPrimary common4" th:text="${session.user.getAddressPrimary()}"></div>
+                    </div>
+                </div>
+                <div class="common">
+                    <span class="common2">상세정보</span>
+                    <div class="common3">
+                        <div class="addressSecondary common4" th:text="${session.user.getAddressSecondary()}"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div></div>
+
+            <div class="a"><h2>결제 금액</h2></div>
+            <div class="right-cart-list">
+                <div class="cart-list-right-frame">
+                    <div class="frame-2">
+                        <div class="finalAmount">
+                            <span class="finalAmount-text-common">상품금액</span>
+                            <span class="finalAmount-text-number-common" rel="finalPrice" >0
+                                <span class="won-common">원</span>
+                            </span>
+                        </div>
+                        <div class="ship-price">
+                            <span class="finalAmount-text-common">배송비</span>
+                            <span class="finalAmount-text-number-common">0
+                                 <span class="won-common">원</span>
+                             </span>
+                        </div>
+                        <div class="expected-price">
+                            <span class="finalAmount-text-common">결제예정금액</span>
+                            <span class="last-frame">
+                            <strong class="finalAmount-text-number" rel="finalPrice">0</strong>
+                             <span class="won">원</span>
+                             </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="userAddressPrimary"></div>
+            <div class="userAddressSecondary"></div>
+        </div>
+    </div>
+</div>
+</form>
+
+
+
+<th:block th:replace="~{fragment/footer :: footer}"></th:block>
+</body>
+</html>

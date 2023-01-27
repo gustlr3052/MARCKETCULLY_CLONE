@@ -139,8 +139,6 @@ public class BbsController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String deleteOtoWriteList(@SessionAttribute(value = "user",required = false)UserEntity user, ArticlesEntity article){
-
-
         Enum<?> result = this.bbsService.deleteArticle(article,user);
         JSONObject responseObject= new JSONObject();
         responseObject.put("result",result.name().toLowerCase());

@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
+    <script defer th:src="@{/main/resources/scripts/main.js}"></script>
     <link rel="stylesheet" th:href="@{/resources/stylesheets/main.css}">
     <link rel="stylesheet" th:href="@{/resources/stylesheets/topnav.css}">
     <link rel="stylesheet" th:href="@{/resources/stylesheets/commons.css}">
@@ -21,16 +22,16 @@
 </head>
 <body>
 <th:block th:replace="~{fragment/topNav :: div}"></th:block>
-
+<form class="form" id="form">
     <div class="main" id="main">
         <div class="main_banners">
             <div class="banner_sub">
-                <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events">배너가 움직입니다
-                    <div class="swiper-wrapper" style="transform:translate3d(-10%,0
-                    ,0px); transition-duration: inherit" ></div>
-                </div>
-                <button>left</button>
-                <button>right</button>
+<!--                <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events">배너가 움직입니다-->
+<!--                    <div class="swiper-wrapper" style="transform:translate3d(-10%,0-->
+<!--                    ,0px); transition-duration: inherit" ></div>-->
+<!--                </div>-->
+<!--                <button>left</button>-->
+<!--                <button>right</button>-->
             </div>
         </div>
         <div class="main_content">
@@ -41,13 +42,13 @@
                     </a>
                 </div>
 
-                <div class="sectionItems">
+                <div class="sectionItems" >
                     <div class="sectionItems-swiper swiper swiper-initialized swiper-horizontal swiper-pointer-events">
-                        <div class="swiper-wrapper" style="transform: translate3d(0px,0px,0px); transition-duration: 0ms">
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
-                                <a href="#" class="goods">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;" th:each="item : ${items}">
+                                <a class="goods" th:href="@{./goods (id = ${item.getIndex()})}">
                                     <div class="image-container image-container-css">
-                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1642401326305l0.jpg" alt="상품 이미지" loading="lazy">
+                                        <img th:src="@{./goodImage (gi=${item.getIndex()})}"  alt="상품 이미지"  th:value="${item.getImage()}">
                                     </div>
                                     <div>
                                         <button type="button" class="product-function css-a4hmbt">
@@ -55,156 +56,158 @@
                                         </button>
                                     </div>
                                     <div class="product-info">
-                                        <h3 class="product-name">[욱이네] 차돌된장찌개</h3>
+                                        <h3 class="product-name"  th:text="${item.getName()}">[욱이네] 차돌된장찌개</h3>
                                         <div class="content-row">
                                             <div class="product-price">
                                                 <div></div>
-                                                <span class="sales-price">6,500
-                                                <span class="won"> 원</span>
-                                                </span>
+                                                <span class="sales-price" th:text="${item.getPrice()}">6,500 </span><span class="won"> 원</span>
+
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
-                                <a href="#" class="goods">
-                                    <div class="image-container image-container-css">
-                                        <img src="https://product-image.kurly.com/cdn-cgi/image/width=400,format=auto/product/image/d4a2f56c-3887-492f-a105-78128a95ec94.jpg" alt="상품 이미지" loading="lazy">
-                                    </div>
-                                    <div>
-                                        <button type="button" class="product-function css-a4hmbt">
-                                            <img src="/resources/images/cart.svg">
-                                        </button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name">[후디스] 위케어 플레인 (130ml X 4개입)</h3>
-                                        <div class="content-row">
-                                            <div class="product-price">
-                                                <div></div>
-                                                <span class="sales-price">6,600
-                                                <span class="won"> 원</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
-                                <a href="#" class="goods">
-                                    <div class="image-container image-container-css">
-                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1591752341654l0.jpg" alt="상품 이미지" loading="lazy">
-                                    </div>
-                                    <div>
-                                        <button type="button" class="product-function css-a4hmbt">
-                                            <img src="/resources/images/cart.svg">
-                                        </button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name">간편 삼계탕 재료 3입</h3>
-                                        <div class="content-row">
-                                            <div class="product-price">
-                                                <div></div>
-                                                <span class="sales-price">4,290
-                                                <span class="won"> 원</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
-                                <a href="#" class="goods">
-                                    <div class="image-container image-container-css">
-                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1646376644152l0.jpg" alt="상품 이미지" loading="lazy">
-                                    </div>
-                                    <div>
-                                        <button type="button" class="product-function css-a4hmbt">
-                                            <img src="/resources/images/cart.svg">
-                                        </button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name">[피코크]정갈한 소고기 미역국</h3>
-                                        <div class="content-row">
-                                            <div class="product-price">
-                                                <div></div>
-                                                <span class="sales-price">4,580
-                                                <span class="won"> 원</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
-                                <a href="#" class="goods">
-                                    <div class="image-container image-container-css">
-                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1653037243267l0.jpeg" alt="상품 이미지" loading="lazy">
-                                    </div>
-                                    <div>
-                                        <button type="button" class="product-function css-a4hmbt">
-                                            <img src="/resources/images/cart.svg">
-                                        </button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name">[하코야] 비빔소바와 육수한상</h3>
-                                        <div class="content-row">
-                                            <div class="product-price">
-                                                <div></div>
-                                                <span class="sales-price">9,900
-                                                <span class="won"> 원</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
-                                <a href="#" class="goods">
-                                    <div class="image-container image-container-css">
-                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1658391698846l0.jpg" alt="상품 이미지" loading="lazy">
-                                    </div>
-                                    <div>
-                                        <button type="button" class="product-function css-a4hmbt">
-                                            <img src="/resources/images/cart.svg">
-                                        </button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name">[설성목장] 얼큰 닭개장</h3>
-                                        <div class="content-row">
-                                            <div class="product-price">
-                                                <div></div>
-                                                <span class="sales-price">7,800
-                                                <span class="won"> 원</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
-                                <a href="#" class="goods">
-                                    <div class="image-container image-container-css">
-                                        <img src="https://product-image.kurly.com/cdn-cgi/image/width=400,format=auto/product/image/ee338012-f7e9-4433-b770-3680ad00adaa.jpg" alt="상품 이미지" loading="lazy">
-                                    </div>
-                                    <div>
-                                        <button type="button" class="product-function css-a4hmbt">
-                                            <img src="/resources/images/cart.svg">
-                                        </button>
-                                    </div>
-                                    <div class="product-info">
-                                        <h3 class="product-name">[상하목장] 마시는 유기농 요구르트(100mL X 5개)</h3>
-                                        <div class="content-row">
-                                            <div class="product-price">
-                                                <div></div>
-                                                <span class="sales-price">2,680
-                                                <span class="won"> 원</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+
+<!--                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">-->
+<!--                                <a href="#" class="goods">-->
+<!--                                    <div class="image-container image-container-css">-->
+<!--                                        <img src="https://product-image.kurly.com/cdn-cgi/image/width=400,format=auto/product/image/d4a2f56c-3887-492f-a105-78128a95ec94.jpg" alt="상품 이미지" loading="lazy">-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <button type="button" class="product-function css-a4hmbt">-->
+<!--                                            <img src="/resources/images/cart.svg">-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-info">-->
+<!--                                        <h3 class="product-name">[후디스] 위케어 플레인 (130ml X 4개입)</h3>-->
+<!--                                        <div class="content-row">-->
+<!--                                            <div class="product-price">-->
+<!--                                                <div></div>-->
+<!--                                                <span class="sales-price">6,600-->
+<!--                                                <span class="won"> 원</span>-->
+<!--                                                </span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">-->
+<!--                                <a href="#" class="goods">-->
+<!--                                    <div class="image-container image-container-css">-->
+<!--                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1591752341654l0.jpg" alt="상품 이미지" loading="lazy">-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <button type="button" class="product-function css-a4hmbt">-->
+<!--                                            <img src="/resources/images/cart.svg">-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-info">-->
+<!--                                        <h3 class="product-name">간편 삼계탕 재료 3입</h3>-->
+<!--                                        <div class="content-row">-->
+<!--                                            <div class="product-price">-->
+<!--                                                <div></div>-->
+<!--                                                <span class="sales-price">4,290-->
+<!--                                                <span class="won"> 원</span>-->
+<!--                                                </span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">-->
+<!--                                <a href="#" class="goods">-->
+<!--                                    <div class="image-container image-container-css">-->
+<!--                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1646376644152l0.jpg" alt="상품 이미지" loading="lazy">-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <button type="button" class="product-function css-a4hmbt">-->
+<!--                                            <img src="/resources/images/cart.svg">-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-info">-->
+<!--                                        <h3 class="product-name">[피코크]정갈한 소고기 미역국</h3>-->
+<!--                                        <div class="content-row">-->
+<!--                                            <div class="product-price">-->
+<!--                                                <div></div>-->
+<!--                                                <span class="sales-price">4,580-->
+<!--                                                <span class="won"> 원</span>-->
+<!--                                                </span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+
+<!--                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">-->
+<!--                                <a href="#" class="goods">-->
+<!--                                    <div class="image-container image-container-css">-->
+<!--                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1653037243267l0.jpeg" alt="상품 이미지" loading="lazy">-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <button type="button" class="product-function css-a4hmbt">-->
+<!--                                            <img src="/resources/images/cart.svg">-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-info">-->
+<!--                                        <h3 class="product-name">[하코야] 비빔소바와 육수한상</h3>-->
+<!--                                        <div class="content-row">-->
+<!--                                            <div class="product-price">-->
+<!--                                                <div></div>-->
+<!--                                                <span class="sales-price">9,900-->
+<!--                                                <span class="won"> 원</span>-->
+<!--                                                </span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">-->
+<!--                                <a href="#" class="goods">-->
+<!--                                    <div class="image-container image-container-css">-->
+<!--                                        <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1658391698846l0.jpg" alt="상품 이미지" loading="lazy">-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <button type="button" class="product-function css-a4hmbt">-->
+<!--                                            <img src="/resources/images/cart.svg">-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-info">-->
+<!--                                        <h3 class="product-name">[설성목장] 얼큰 닭개장</h3>-->
+<!--                                        <div class="content-row">-->
+<!--                                            <div class="product-price">-->
+<!--                                                <div></div>-->
+<!--                                                <span class="sales-price">7,800-->
+<!--                                                <span class="won"> 원</span>-->
+<!--                                                </span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">-->
+<!--                                <a href="#" class="goods">-->
+<!--                                    <div class="image-container image-container-css">-->
+<!--                                        <img src="https://product-image.kurly.com/cdn-cgi/image/width=400,format=auto/product/image/ee338012-f7e9-4433-b770-3680ad00adaa.jpg" alt="상품 이미지" loading="lazy">-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <button type="button" class="product-function css-a4hmbt">-->
+<!--                                            <img src="/resources/images/cart.svg">-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-info">-->
+<!--                                        <h3 class="product-name">[상하목장] 마시는 유기농 요구르트(100mL X 5개)</h3>-->
+<!--                                        <div class="content-row">-->
+<!--                                            <div class="product-price">-->
+<!--                                                <div></div>-->
+<!--                                                <span class="sales-price">2,680-->
+<!--                                                <span class="won"> 원</span>-->
+<!--                                                </span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+
 
                         </div>
                     </div>
@@ -221,10 +224,10 @@
                     </a>
                 </div>
 
-                <div class="sectionItems">
-                    <div class="sectionItems-swiper swiper swiper-initialized swiper-horizontal swiper-pointer-events">
+                <div class="sectionItems" disabled>
+                    <div class="sectionItems-swiper swiper swiper-initialized swiper-horizontal swiper-pointer-events" >
                         <div class="swiper-wrapper" style="transform: translate3d(0px,0px,0px); transition-duration: 0ms">
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
+                            <div class="swiper-slide2" style="width: 249px; margin-right: 18px;">
                                 <a href="#" class="goods">
                                     <div class="image-container image-container-css">
                                         <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1608801577622l0.jpg" alt="상품 이미지" loading="lazy">
@@ -235,7 +238,7 @@
                                         </button>
                                     </div>
                                     <div class="product-info">
-                                        <h3 class="product-name">유명산지 설향 딸기</h3>
+                                        <h3 class="product-name" >유명산지 설향 딸기</h3>
                                         <div class="content-row">
                                             <div class="product-price">
                                                 <div>
@@ -252,7 +255,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
+                            <div class="swiper-slide2" style="width: 249px; margin-right: 18px;">
                                 <a href="#" class="goods">
                                     <div class="image-container image-container-css">
                                         <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1653040180386l0.jpg" alt="상품 이미지" loading="lazy">
@@ -280,7 +283,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
+                            <div class="swiper-slide2" style="width: 249px; margin-right: 18px;">
                                 <a href="#" class="goods">
                                     <div class="image-container image-container-css">
                                         <img src="https://product-image.kurly.com/cdn-cgi/image/width=400,format=auto/product/image/9c4e8e83-9556-4dfd-b732-c4a5e0b089c1.jpg" alt="상품 이미지" loading="lazy">
@@ -308,7 +311,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
+                            <div class="swiper-slide2" style="width: 249px; margin-right: 18px;">
                                 <a href="#" class="goods">
                                     <div class="image-container image-container-css">
                                         <img src="https://product-image.kurly.com/cdn-cgi/image/width=400,format=auto/product/image/3e5c2e8c-22d6-464b-be58-b429ebfe6ca9.jpg" alt="상품 이미지" loading="lazy">
@@ -336,7 +339,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
+                            <div class="swiper-slide2" style="width: 249px; margin-right: 18px;">
                                 <a href="#" class="goods">
                                     <div class="image-container image-container-css">
                                         <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1653037243267l0.jpeg" alt="상품 이미지" loading="lazy">
@@ -359,7 +362,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
+                            <div class="swiper-slide2" style="width: 249px; margin-right: 18px;">
                                 <a href="#" class="goods">
                                     <div class="image-container image-container-css">
                                         <img src="https://img-cf.kurly.com/cdn-cgi/image/width=400,format=auto/shop/data/goods/1658391698846l0.jpg" alt="상품 이미지" loading="lazy">
@@ -382,7 +385,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="swiper-slide" style="width: 249px; margin-right: 18px;">
+                            <div class="swiper-slide2" style="width: 249px; margin-right: 18px;">
                                 <a href="#" class="goods">
                                     <div class="image-container image-container-css">
                                         <img src="https://product-image.kurly.com/cdn-cgi/image/width=400,format=auto/product/image/ee338012-f7e9-4433-b770-3680ad00adaa.jpg" alt="상품 이미지" loading="lazy">
@@ -408,8 +411,8 @@
 
                         </div>
                     </div>
-                    <button type="button" class="rightButton"></button>
-                    <button type="button" class="leftButton"></button>
+                    <button type="button" class="rightButton" rel="rightButton"></button>
+                    <button type="button" class="leftButton" rel="leftButton" hidden ></button>
                 </div>
             </div>
 
@@ -417,6 +420,7 @@
 
         </div>
     </div>
+</form>
 <th:block th:replace="~{fragment/footer :: footer}"></th:block>
 
 </body>

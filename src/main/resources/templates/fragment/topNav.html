@@ -26,14 +26,19 @@
       <a class="Nav-sign-up" th:href="@{/member/register}">회원가입</a>
       <div class="null"></div>
       <a class="Nav-login" th:if ="${session.user == null}" th:href="@{/member/login}">로그인</a>
-      <div class="null"></div>
+
       <a class="Nav-logout"  th:if ="${session.user != null}" th:href="@{/member/logout}">로그아웃</a>
       <div class="null"></div>
-      <a class="Nav-client"  th:href="@{/bbs/serviceCenter}">고객센터</a>
+      <a class="Nav-client"  th:href="@{/bbs/otoWriteList (bid='oto')}">고객센터</a>
+      <div class="null"></div>
+      <a class="Nav-client"  th:href="@{/cart/order}">주문서</a>
     </div>
-    <div class="Nav-image" id="image">
-      <img src="/resources/images/marketkurly.png">
+    <div class="Nav-image" id="image" >
+      <a th:href="@{/main/main}"><img src="/resources/images/marketkurly.png"> </a>
+
     </div>
+
+
     <div class="Nav-header" id="header">
       <div class="header-head">
         <ul>
@@ -50,6 +55,13 @@
             <span class="category">특가/혜택</span>
           </li>
         </ul>
+        <div class="cart-image">
+          <a th:href="@{/cart/cart}">
+            <img src="/resources/images/goCart.svg" alt="" >
+          </a>
+
+
+        </div>
       </div>
     </div>
 
