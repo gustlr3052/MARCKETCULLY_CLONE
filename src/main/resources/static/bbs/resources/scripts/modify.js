@@ -41,7 +41,7 @@ form.onsubmit = e =>{
 
                         break;
                     case 'success':
-
+                        alert('해당 문의사항이  수정되었습니다.');
                         window.location.href='otoWriteList?bid=oto'// 아직 잘 모르겠음
                         break;
                     default:

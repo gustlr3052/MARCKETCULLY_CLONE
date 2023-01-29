@@ -115,7 +115,7 @@ public class MemberService {
         return  CommonResult.SUCCESS;
     }
 
-    public Enum<? extends IResult> register(UserEntity user,EmailAuthEntity emailAuth){
+    public Enum<? extends IResult>register(UserEntity user,EmailAuthEntity emailAuth){
         EmailAuthEntity existingEmailAuth = this.memberMapper.selectEmailAuthByEmailCodeSalt(
                 emailAuth.getEmail(),
                 emailAuth.getCode(),
@@ -131,7 +131,7 @@ public class MemberService {
         return CommonResult.SUCCESS;
     }
 
-    public Enum<? extends IResult> login(UserEntity user){
+    public Enum<? extends IResult>login(UserEntity user){
         UserEntity existingUser = this.memberMapper.selectUserByEmail(user.getEmail());
         if(existingUser == null){
             return CommonResult.FAILURE;
@@ -145,7 +145,6 @@ public class MemberService {
         user.setContact(existingUser.getContact());
         user.setAddressPrimary(existingUser.getAddressPrimary());
         user.setAddressSecondary(existingUser.getAddressSecondary());
-
 
 
         return CommonResult.SUCCESS;

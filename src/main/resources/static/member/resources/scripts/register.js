@@ -190,6 +190,7 @@ form.querySelector('[rel="buttonJoin"]').addEventListener('click',()=>{
             switch (responseObject['result']){
                 case 'success':
                     alert('회원가입 완료 \n\n 즐거운 쇼핑 되세요~^^');
+                    window.location.href='/main/main'
                     break;
                 case 'email_not_verified':
                     alert('이메일 인증이 완료되지 않았습니다.');
@@ -205,4 +206,33 @@ form.querySelector('[rel="buttonJoin"]').addEventListener('click',()=>{
       }
     };
     xhr.send(formData);
+});
+
+
+const checkAll = document.querySelector('.TermsAgreeAll');
+const checkArr = document.querySelectorAll('[rel="checked"]');
+checkAll.addEventListener('click', () => {
+    checkArr.forEach(ck => {
+        ck.checked = checkAll.checked;
+        console.log(ck.dataset.index);
+    });
+});
+checkArr.forEach(ck => {
+    ck.addEventListener('click', () => {
+        let cnt = 0;
+        checkArr.forEach(ck => {
+            if (ck.checked) {
+                cnt++;
+
+            }
+        });
+        if (cnt === checkArr.length) {
+            checkAll.checked = true;
+        } else {
+            checkAll.checked = false;
+            alert('필수약관에 동의하여 주십시오')
+        }
+        console.log(ck.dataset.index);
+
+    });
 });

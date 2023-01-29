@@ -43,11 +43,11 @@ for (let deleteButton of deleteButtons) {
                   case 'success':
                      window.location.href='otoWriteList?bid=oto';
 
-                     alert('성공');
+                     alert('해당 문의 글을 삭제하였습니다.');
                      break;
                   case 'failure':
 
-                     alert('실패');
+                     alert('삭제 권한이 없습니다.');
                      break;
                   default:
                      alert('알 수 없는 이유로 게시글을 삭제하지 못하였습니다.');
