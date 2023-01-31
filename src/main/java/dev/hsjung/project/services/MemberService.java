@@ -95,7 +95,7 @@ public class MemberService {
 
     }
 
-    // 인증 확인
+    // 회원가입 인증 확인
     public Enum<? extends IResult> verifyEmailAuth(EmailAuthEntity emailAuth){
         EmailAuthEntity existingEmailAuth = this.memberMapper.selectEmailAuthByEmailCodeSalt(
                 emailAuth.getEmail(),

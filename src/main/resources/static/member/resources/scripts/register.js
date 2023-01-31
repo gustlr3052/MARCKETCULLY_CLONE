@@ -181,7 +181,7 @@ form.querySelector('[rel="buttonJoin"]').addEventListener('click',()=>{
     formData.append('addressPostal', form['addressPostal'].value);
     formData.append('addressPrimary', form['addressPrimary'].value);
     formData.append('addressSecondary', form['addressSecondary'].value);
-
+    alert('로그인을 진행해 주세요.');
     xhr.open('POST', '/member/register');
     xhr.onreadystatechange = () =>{
       if(xhr.readyState === XMLHttpRequest.DONE){
@@ -190,16 +190,14 @@ form.querySelector('[rel="buttonJoin"]').addEventListener('click',()=>{
             switch (responseObject['result']){
                 case 'success':
                     alert('회원가입 완료 \n\n 즐거운 쇼핑 되세요~^^');
-                    window.location.href='/main/main'
+                    window.location.href='/'
                     break;
                 case 'email_not_verified':
                     alert('이메일 인증이 완료되지 않았습니다.');
                     break;
                 default:
                     alert('알수 없는 이유로 회원가입에 실패하였습니다. 잠시후 다시 시도해주세요.');
-
             }
-
         }else{
             alert('서버와 통신하지 못하였습니다. 잠시후 다시 시도해 주세요');
         }
@@ -223,7 +221,6 @@ checkArr.forEach(ck => {
         checkArr.forEach(ck => {
             if (ck.checked) {
                 cnt++;
-
             }
         });
         if (cnt === checkArr.length) {

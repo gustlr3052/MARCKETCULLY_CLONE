@@ -25,7 +25,7 @@ form['login'].addEventListener('click',()=>{
             switch (responseObject['result']){
                 case 'success':
                     alert('로그인 성공');
-                    window.location.href='/main/main'; // 로그인 성공시 이동할 주소
+                    window.location.href='/'; // 로그인 성공시 이동할 주소
                     break;
                 default:
                     alert('로그인 실패');

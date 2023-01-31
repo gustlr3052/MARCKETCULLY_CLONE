@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/main")
+@RequestMapping(value = "/")
 public class HomeController {
 
     private final MemberService memberService;
@@ -33,7 +33,7 @@ public class HomeController {
         this.itemService = itemService;
     }
 
-    @RequestMapping(value = "main",
+    @RequestMapping(value = "/",
             method = RequestMethod.GET,
             produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView getMain(){

@@ -208,7 +208,7 @@ for (let deleteButton of deleteButtons) {
                     console.log('여기까지 통과테스트');
                     switch (responseObject['result']) {
                         case'success':
-                            window.location.href = './cart'
+                            window.location.href = 'cart/cart'
                             alert('삭제 성공');
                             break;
                         case 'failure':
@@ -306,7 +306,7 @@ document.querySelector('.order').addEventListener('click',e =>{
                             case'failure':
                                 alert('실패');
                                 break;default:
-                                alert('알 수 없는 이유로 상품삭제 불가');
+                                alert('알 수 없는 이유로 주문 불가');
                                 break;
                         }
                     }else{

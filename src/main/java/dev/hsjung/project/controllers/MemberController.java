@@ -74,6 +74,7 @@ public class MemberController {
         Enum<?> result = this.memberService.register(user,emailAuth);
         JSONObject responseObject = new JSONObject();
         responseObject.put("result",result.name().toLowerCase());
+
         return responseObject.toString();
 
     }

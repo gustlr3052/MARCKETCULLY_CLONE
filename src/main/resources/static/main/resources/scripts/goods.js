@@ -53,7 +53,7 @@ minusButton.addEventListener('click',()=>{
           for(const pair of values){
                console.log(pair);
           }
-          xhr.open('POST','/main/cart');
+          xhr.open('POST','/cart');
           xhr.onreadystatechange = () =>{
             if(xhr.readyState === XMLHttpRequest.DONE){
               if(xhr.status >= 200 && xhr.status <300) {
